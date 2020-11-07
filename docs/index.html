@@ -1,81 +1,117 @@
 <!DOCTYPE html>
 
 <html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>WASM for Arduino/Mbed | ECE M202A Project</title>
 
-<head>
-    <meta charset="UTF-8">
-    <title>Smart Delivery Box | ECE M202A Project</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="https://pages-themes.github.io/cayman/assets/css/style.css?v=bab38dbfd764a3259db85a3d47696439eb22ebd3"
+        />
+        <link rel="shortcut icon" type="image/png" href="favicon.jpeg" />
+        <link rel="stylesheet" type="text/css" href="index.css" />
+    </head>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css"
-        href="https://pages-themes.github.io/cayman/assets/css/style.css?v=bab38dbfd764a3259db85a3d47696439eb22ebd3">
-    <link rel="shortcut icon" type="image/png" href="favicon.jpeg">
-    <link rel="stylesheet" type="text/css" href="index.css">
-</head>
+    <body>
+        <header class="page-header" role="banner">
+            <h1 class="project-name">WASM for Arduino/Mbed</h1>
+            <h2 class="project-tagline">Project for ECE M202A - Embedded Systems</h2>
 
+            <a href="https://github.com/utsavm9/wasm-for-arduino-mbed" target="_blank" class="btn">GitHub Repo</a>
+            <a href="https://github.com/utsavm9/wasm-for-arduino-mbed/tree/main/docs" target="_blank" class="btn">
+                Website Folder
+            </a>
+        </header>
 
-<body>
+        <main id="content" class="main-content" role="main">
+            <div class="card">
+                <h1>Proposal Abstract</h1>
+                <hr />
 
-    <header class="page-header" role="banner">
-        <h1 class="project-name">Smart Delivery Box</h1>
-        <h2 class="project-tagline">Project for ECE M202A - Embedded Systems</h2>
+                <p>
+                    Our goal in this project is to develop a sensor interface that would allow a WebAssembly Runtime to
+                    run WebAssembly application on an nRF5280 board and be able to utilize the sensors present on the
+                    board. Applications run inside a WebAssembly runtime are more secure than C applications compiled to
+                    run natively. We want to use the security features present in a WebAssembly runtime and develop
+                    applications which once compiled to WebAssembly, can execute on different boards. The main challenge
+                    we face in this project is getting WebAssembly to work full-fledged on Arduino/Mbed embedded device
+                    so that the application can access and control the sensors present on the board. We want WebAssembly
+                    running on our embedded device and have it communicate with the proper pinouts on the device.
+                </p>
 
-        <a href="https://github.com/utsavm9/deliverybox" target="_blank" class="btn">GitHub Repo</a>
-        <a href="https://github.com/utsavm9/deliverybox/tree/main/docs" target="_blank" class="btn">Website Folder</a>
+                <p>
+                    We also plan to quantify any additional memory overhead or runtime costs that are by using a
+                    WebAssemblytime as opposed to compiling and running executables natively.
+                </p>
 
-    </header>
+                <p>
+                    <b>Deliverables</b>: A Sensor interface to existing WebAssembly Runtime targeted to run on
+                    Andruino/Mbed.
+                </p>
+            </div>
 
-    <main id="content" class="main-content" role="main">
+            <div class="card">
+                <h1>Proposed Timeline</h1>
+                <hr />
 
-        <div class="card">
-            <h1>Proposal Abstract</h1>
-            <hr />
+                <ul>
+                    <li>Week 5 (11/6): Meet with Botong Ou for guidance and collect baseline board</li>
+                    <li>Week 6 (11/09): Anaalyse existing literature and add it to the report.</li>
+                    <li>Week 6 (11/10): Have WASM running on Zephyr OS device for reference</li>
+                    <li>
+                        Week 6 (11/13): Learn how WASI-SN works with Zephyr, and figure out what we need to code to make
+                        it work for Arduino.
+                    </li>
+                    <li>Week 7: Report on preliminary design and results.</li>
+                    <li>Week 8 (11/27): Have a WebAssembly Runtime working on our Arduino board.</li>
+                    <li>Week 9 (12/04): Measure statistics on the overheads introduced by using WebAssembly</li>
+                    <li>Week 10 (12/11): Finish project report and code.</li>
+                    <li>Week 10 (12/18): Finish the video presentation.</li>
+                </ul>
+            </div>
 
-            <p>We will explore an application of embedded systems in home and delivery package security. </p>
+            <div class="card">
+                <h1>Relevant Resources</h1>
+                <hr />
 
-            <p>Potential project implementations which can be explored:</p>
+                <ul>
+                    <li>
+                        <a href="https://github.com/bytecodealliance/wasm-micro-runtime"> WebAssembly Micro Runtime </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/conix-center/edge-rm/tree/master/agent/zephyr/app">
+                            Edge Resource Manager - Zephyr Agent Application
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                            href="https://github.com/bytecodealliance/wasm-micro-runtime/blob/main/doc/build_wamr.md#zephyr"
+                        >
+                            Running WAMR on board with Zephyr OS
+                        </a>
+                    </li>
+                </ul>
+            </div>
 
-            <ul>
-                <li>Using Arduino Nano to control a locking mechanism, which ensures only authorized people like the
-                    house owner and delivery personnel can unlock the box. This locking mechanism is part of a larger
-                    structurally-secure delivery box.</li>
-                <li>Cost-effective implementation where an Arduino Nano system is attached to an existing mailbox or
-                    front door, and it notifies the user though an Android app when packages are delivered.
-                    Additionally, with a camera sensor, this system can capture photographs and alert the user when
-                    packages are being taken away by unknown people. The Nano system can employ NFC with the home
-                    owner's phone to identify when the delivery is being taken away by user themselves or by an
-                    unrecognized person.</li>
-            </ul>
+            <div class="card">
+                <h1>Team Members</h1>
+                <hr />
 
-
-            <p>Deliverables include a embedded system with Arduino Nano and an Android app or a website accessible only
-                on the home's WiFi.</p>
-
-        </div>
-
-
-        <div class="card">
-            <h1>Team Members</h1>
-            <hr />
-
-            <ul>
-                <li>
-                    <a href="mailto:arelysnavarro@g.ucla.edu">
-                        Arelys Navarro
-                    </a>
-                </li>
-                <li>
-                    <a href="mailto:howardx@cs.ucla.edu">
-                        Howard Xie
-                    </a>
-                </li>
-                <li>
-                    <a href="mailto:utsavm9@g.ucla.edu">
-                        Utsav Munendra
-                    </a>
-                </li>
-            </ul>
-        </div>
-</body>
-
+                <ul>
+                    <li>
+                        <a href="mailto:arelysnavarro@g.ucla.edu"> Arelys Navarro </a>
+                    </li>
+                    <li>
+                        <a href="mailto:howardx@g.ucla.edu"> Howard Xie </a>
+                    </li>
+                    <li>
+                        <a href="mailto:utsavm9@g.ucla.edu"> Utsav Munendra </a>
+                    </li>
+                </ul>
+            </div>
+        </main>
+    </body>
 </html>

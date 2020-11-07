@@ -1,21 +1,26 @@
-# Smart Delivery Box
+# WASM for Arduino/Mbed
 
 ## Proposal Abstract
 
-We will explore an application of embedded systems in home and delivery package security. 
+Our goal in this project is to develop a sensor interface that would allow a WebAssembly Runtime to
+run WebAssembly application on an nRF5280 board and be able to utilize the sensors present on the
+board. Applications run inside a WebAssembly runtime are more secure than C applications compiled to
+run natively. We want to use the security features present in a WebAssembly runtime and develop
+applications which once compiled to WebAssembly, can execute on different boards. The main challenge
+we face in this project is getting WebAssembly to work full-fledged on Arduino/Mbed embedded device
+so that the application can access and control the sensors present on the board. We want WebAssembly
+running on our embedded device and have it communicate with the proper pinouts on the device.
 
-Potential project implementations which can be explored:
+We also plan to quantify any additional memory overhead or runtime costs that are by using a
+WebAssemblytime as opposed to compiling and running executables natively.
 
-* Using Arduino Nano to control a locking mechanism, which ensures only authorized people like the house owner and delivery personnel can unlock the box. This locking mechanism is part of a larger structurally-secure delivery box.
+<b>Deliverables</b>: A Sensor interface to existing WebAssembly Runtime targeted to run on
+Andruino/Mbed.
 
-* Cost-effective implementation where an Arduino Nano system is attached to an existing mailbox or front door, and it notifies the user though an Android app when packages are delivered. Additionally, with a camera sensor, this system can capture photographs and alert the user when packages are being taken away by unknown people. The Nano system can employ NFC with the home owner's phone to identify when the delivery is being taken away by user themselves or by an unrecognized person.
-
-Deliverables include a embedded system with Arduino Nano and an Android app or a website accessible only on the home's WiFi.
-
-----
+---
 
 ## Team Members
 
-* Arelys Navarro (arelysnavarro@g.ucla.edu)
-* Howard Xie (howardx@cs.ucla.edu)
-* Utsav Munendra (utsavm9@g.ucla.edu)
+-   Arelys Navarro (arelysnavarro@g.ucla.edu)
+-   Howard Xie (howardx@cs.ucla.edu)
+-   Utsav Munendra (utsavm9@g.ucla.edu)
