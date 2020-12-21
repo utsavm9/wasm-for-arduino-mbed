@@ -2,9 +2,9 @@
 
 ## Uploaded Code
 
-* WAMR (https://github.com/utsavm9/wasm-micro-runtime/commits/main)
-    - Platform API implementation for MBed OS (https://github.com/utsavm9/wasm-micro-runtime/commit/4c5eb14a19ed769b355fad0a6c27cde671ef651b)
-    - CMake file to build WAMR for MBed (https://github.com/utsavm9/wasm-micro-runtime/commit/aa954a53672d4598da960b0095f413ae5b8401ca)
+* WAMR [https://github.com/utsavm9/wasm-micro-runtime/commits/main]
+    - Platform API implementation for MBed OS [https://github.com/utsavm9/wasm-micro-runtime/commit/4c5eb14a19ed769b355fad0a6c27cde671ef651b]
+    - CMake file to build WAMR for MBed [https://github.com/utsavm9/wasm-micro-runtime/commit/aa954a53672d4598da960b0095f413ae5b8401ca]
 
 ## Proposal Abstract
 
