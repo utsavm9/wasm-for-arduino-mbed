@@ -7,24 +7,13 @@
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](https://github.com/wasm3/wasm3)
 
 
-Main repository: [**Wasm3 project**](https://github.com/wasm3/wasm3)  
-This library can be used with 
-[`Arduino`](https://www.arduinolibraries.info/libraries/wasm3), 
-[`PlatformIO`](https://platformio.org/lib/show/6973/Wasm3) and 
-[`Particle`](https://build.particle.io/libs/Wasm3/latest/tab/example/Wasm_Blink.ino).
+Original repository: [**Wasm3 Arduino project**](https://github.com/wasm3/wasm3-arduino)
 
 ## Supported devices
 
 Wasm3 requires at least **~64Kb** Flash and **~10Kb** RAM even for minimal functionality.
 
-The library was verified to work with:  
-`ESP32`, `ESP8266`, `Arduino MKR`, `Particle`,  
-`RTL8711`, `ST Nucleo WB55RG`, `BluePill`,  
-`Nordic nRF5`, `Teensy`, ... [see full list](https://github.com/wasm3/wasm3/blob/master/docs/Hardware.md)
-
-## Disclaimer
-
-Please also note that Arduino API here is just for an example. We do not encourage this way of programming, and we have to come up with a better API (i.e. **Event-Driven**, **Resource-Oriented** or similar).
+This is a repository for the Arduino library, Wasm3. This is an interpreter that runs on Arduino. My contribution in this repository is under [`wasm_apps/custom_app`]
 
 ### License
 This project is released under The MIT License (MIT)
