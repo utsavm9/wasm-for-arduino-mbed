@@ -9,11 +9,11 @@
 
 Original repository: [**Wasm3 Arduino project**](https://github.com/wasm3/wasm3-arduino)
 
+This is a repository for the Arduino library, Wasm3. This is an interpreter that runs on Arduino. My contribution in this repository is under `wasm_apps/custom_app`
+
 ## Supported devices
 
 Wasm3 requires at least **~64Kb** Flash and **~10Kb** RAM even for minimal functionality.
-
-This is a repository for the Arduino library, Wasm3. This is an interpreter that runs on Arduino. My contribution in this repository is under [`wasm_apps/custom_app`]
 
 ### License
 This project is released under The MIT License (MIT)
