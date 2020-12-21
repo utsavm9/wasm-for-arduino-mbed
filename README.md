@@ -6,6 +6,10 @@
     - Platform API implementation for MBed OS • [utsavm9/wasm-micro-runtime@4c5eb14](https://github.com/utsavm9/wasm-micro-runtime/commit/4c5eb14a19ed769b355fad0a6c27cde671ef651b)
     - CMake file to build WAMR for MBed • [utsavm9/wasm-micro-runtime@aa954a5](https://github.com/utsavm9/wasm-micro-runtime/commit/aa954a53672d4598da960b0095f413ae5b8401ca)
 
+* Wasm3
+    - Wasm3 library with modified driver code ([here](https://github.com/utsavm9/wasm-for-arduino-mbed/tree/main/wasm3-arduino/examples_pio/wasm_fibonnaci_timing))
+    - Example WASM program that recursively computes the 24th Fibonnaci number and times it ([here](https://github.com/utsavm9/wasm-for-arduino-mbed/tree/main/wasm3-arduino/wasm_apps/cpp))
+
 ## Proposal Abstract
 
 Our goal in this project is to develop a sensor interface that would allow a WebAssembly Runtime to
