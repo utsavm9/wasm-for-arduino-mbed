@@ -78,7 +78,9 @@
                 <hr />
 
                 <p>
-                   to be elaborated more in detail. for high level goals, see proposal.
+                   Develop a sensor interface that would allow WebAssembly Micro Runtime (WAMR) to run a WebAssembly application on an Arduino/Mbed OS.
+                     <li>Porting WAMR to Mbed OS
+                     <li>Evaluate WAMR on Mbed OS
                 </p>
 
                 
@@ -87,9 +89,27 @@
              <div class="card">
                 <h1>Technical Approach</h1>
                 <hr />
-
                 <p>
-                   Include hardwardware list here. to be completed.
+                   <ol>
+                       <li>Running WebAssembly Micro Runtime (WAMR) on Zephyr Real Time Operating System (RTOS)</li>
+                           
+                       <li>Porting WAMR to Mbed OS</li>
+                          
+                       <li>Evaluate WAMR on Mbed OS</li>
+                           
+                   </ol>
+                </p>
+                <p>
+                    Hardware
+                   <li>Arduino Nano 33 BLE Sense
+                   <li>Micro USB Cable
+                   <li>NUCLEO-F411RE Board
+                   <li>USB Mini-B to USB-A Cable
+                   <li>LED
+                   <li>Adafruit SWD Cable Breakout Board
+                   <li>Breadboard
+                   <li>Jumper Cables
+                   <li>Soldering kit
                 </p>
 
                 
@@ -98,7 +118,20 @@
              <div class="card">
                 <h1>Implementation, Evaluation, Success Metrics, and Key Findings</h1>
                 <hr />
-
+                 <ol>
+                       <li>Running WebAssembly Micro Runtime (WAMR) on Zephyr Real Time Operating System (RTOS)</li>
+                            Using code from ByteCode Alliance, WAMR was set up for Zephyr OS...This helped in understanding WAMR....because.... Main lessons from implementing this were....For more detail about this implementation see doc....
+                       </li>
+                       <li>Porting WAMR to Mbed OS</li>
+                            We ported WAMR using files from....This requeired adjustment for Mbed OS API..We did not need to include math library or...Might talk about nucleo....Jtag setup....
+                       </li>
+                       <li>Evaluate WAMR on Mbed OS</li>
+                            After succesful implementation of the code, as shown in demonstration, we implemented code for timing...Timing inludes from (start) to (end)....in all timing comparisons we used the same Fibonacci 21...                       
+                       </li>
+                       <li>Evaluate WASM3 and Compate to WAMR on MBed</li>
+                            Howard setup WASM3....Arduino Code......Timing....
+                       </li>   
+                   </ol>
                 <p>
                    to be completed.
                 </p>
