@@ -1,6 +1,6 @@
 # WASM for Arduino/Mbed
 
-## Implementation
+## Primary Project Contribution
 
 * WAMR • [All commits](https://github.com/utsavm9/wasm-micro-runtime/commits/main)
     - Platform API implementation for Mbed OS • [utsavm9/wasm-micro-runtime@4c5eb14](https://github.com/utsavm9/wasm-micro-runtime/commit/4c5eb14a19ed769b355fad0a6c27cde671ef651b)
@@ -12,6 +12,10 @@
     - Seperate build files from source files in CMake • [utsavm9/mbed-cmake@51dd694](https://github.com/utsavm9/mbed-cmake/commit/51dd6941c25823d37ab1cbfc058c262d5419bbbd)
     - Combine build process of WAMR with Mbed  • [utsavm9/mbed-cmake@593affc](https://github.com/utsavm9/mbed-cmake/commit/593affc7f67a8019b80f595165eadf4d72de6c05)
 
+* Scripts • [Folder](https://github.com/utsavm9/wasm-for-arduino-mbed/tree/main/scripts)
+    - Serial Monitor for Windows
+    - Compiling C programs to WASM modules in C arrays
+    - Compiling with Mbed-CMake
 ---
 
 * Wasm3
