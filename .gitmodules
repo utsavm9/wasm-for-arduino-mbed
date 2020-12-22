@@ -1,3 +1,6 @@
 [submodule "wasm-micro-runtime"]
 	path = wasm-micro-runtime
 	url = https://github.com/utsavm9/wasm-micro-runtime.git
+[submodule "mbed"]
+	path = mbed
+	url = https://github.com/utsavm9/mbed-cmake-example-project.git
