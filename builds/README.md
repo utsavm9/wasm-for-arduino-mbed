@@ -55,7 +55,7 @@ Total Flash memory (text + data): 123516(+123516) bytes
 
 Compiles with a few warnings. This could not be flashed onto Arduino Nano 33 using `bossac` with neither of offsets `0x00000`, nor `0x10000`.
 
-Arduino also does not support flashing by drag-n-drop to a mounted drive. Our approach was to directly flash the `.bin` file using a J-Link programmar at the correct offsets. However, the metal pins for that purpose were too small on the Arduino board, and we were too inexperienced with soldering.
+Arduino also does not support flashing by drag-n-drop to a mounted drive. Our approach was to directly flash the `.bin` file using a J-Link programmer at the correct offsets. However, the metal pins for that purpose were too small on the Arduino board, and we were too inexperienced with soldering.
 
 Charles Walker has investigated this issue before:
 
@@ -68,9 +68,9 @@ Charles Walker has investigated this issue before:
 ```
 Forcing reset using 1200bps open/close on port COM9
 ```
-- Before running the `bossac` command, the board needs to be brought in bootloaded mode by trying to open a connect to a specific COM port at a specific baud rate. This can be achieved with the scripts provided in this repo:
+- Before running the `bossac` command, the board needs to be brought in bootloader mode by trying to open a connection to a specific COM port at a specific baud rate. This can be achieved with the scripts provided in this repo:
 ```
 Serial-Monitor COM9 1200
 ```
-- With this, `bossac` command can be run from terminal to attempt to flash a `.bin` file. However, the issue is that as described in [ArduinoCore-nRF528x-mbedos#19](ArduinoCore-nRF528x-mbedos), our `.bin` file would still not be flashed at the specified offset but would rather be skipped.
+- With this, `bossac` command can be run from the terminal to attempt to flash a `.bin` file. However, the issue is that as described in [ArduinoCore-nRF528x-mbedos#19](ArduinoCore-nRF528x-mbedos), our `.bin` file would still not be flashed at the specified offset but would rather be skipped.
 -----

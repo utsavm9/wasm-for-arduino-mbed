@@ -47,27 +47,31 @@
             <p><strong>Running WAMR on Zephyr OS.</strong></p>
 
             <p>
-                First, we got familiar with building projects for embedded systems. Getting a Blinky project running on
-                Zephyr took the most time in this project. We were inexperienced
+                First, we got familiar with compiling applications for embedded systems. Getting a Blinky project
+                running on
+                Zephyr took the most time. We were inexperienced
                 with interacting so closely with build tools and most installed software needed to be adjusted to
-                actually work. All this was further complicated by the fact
+                work. All this was further complicated by the fact
                 that the latest version of CMake was buggy (<a
                     href="https://github.com/zephyrproject-rtos/zephyr/issues/30232">zephyr#30232</a>). However, Zephyr
                 developers in their Slack channel helped us out.
             </p>
 
-            <p>WAMR already supports Zephyr OS and it has a mini-product avaiable too. We had a Nordic nRF52840 DK board
+            <p>WAMR already supports Zephyr OS and it has a mini-product available too. We had a Nordic nRF52840 DK
+                board
                 available, and so we decided to run WAMR on it. The mini-product is a sample
-                program which sets-up the WAMR runtime, calls its main function and exited. Setting up a running
+                program that sets-up the WAMR runtime, calls its main function and exits. Setting up a running
                 baseline made us understand these key concepts about WAMR: </p>
 
             <ul>
                 <li>A C/C++ (native) program needs to set-up WAMR runtime. This program is what we flash to the board.
                 </li>
-                <li>The WAMR runtime needs to know how much stack and heap its modules can have. </li>
-                <li>WASM program is not sent over USB in mini-product, but its binary is encoded in a C string avaiable
+                <li>The WAMR runtime needs to know how much stack and heap memory its modules can have. </li>
+                <li>WASM program is not sent over USB in mini-product, but its binary form is encoded in a C string
+                    available
                     to the native program.</li>
-                <li>Our native program can pass arguments and store the result value from any function in WASM program,
+                <li>Our native program can pass arguments and store the result value from any function in the WASM
+                    program,
                     including main().</li>
                 <li>The WASM program can pass control to any functions defined natively.</li>
             </ul>
@@ -78,11 +82,12 @@
 
             <p>
                 Once we had the WASM program provided with WAMR running on Zephyr, we wanted to run our own WASM
-                programs. We learnt that WASI-SDK comes with a CLang compiler which can produce WASM bytecode from C
-                programs. Also, appropriate flags needed to be set so that the linker does not complain of missing
-                main() when it is not needed, and also to export other functions. There exported functions has their
-                definition missing from the WASM module. WAMR runtime can link functions from native program to these
-                exported functions. This allows the WASM program to call any needed native functions, for example to
+                programs. We learned that WASI-SDK comes with a CLang compiler that can produce WASM bytecode from C
+                programs. Also, appropriate flags were needed to be set so that the linker does not complain of missing
+                main() when it is not needed, and also to export other functions. There exported functions have their
+                definition missing from the WASM module. WAMR runtime can link functions from the native program to
+                these
+                exported functions. This allows the WASM program to call any needed native functions to, for example,
                 blink an LED.
             </p>
 
@@ -93,28 +98,33 @@
             <ul>
                 <li>We first needed to set-up our system so that it builds Mbed OS. We set up the toolchain and the
                     appropriate dependencies for our application. This included installing CMake, GNU ARM, and Python 3
-                    with some additional packages. For our Windows machines we also had to find a workable generator for
+                    with some additional packages. For our Windows machines, we also had to find a workable generator
+                    for
                     CMake, which turned out to be MinGW make. </li>
 
-                <li>We needed to incorporate together the compiling process of Mbed OS and WAMR, so that functions from
+                <li>We needed to incorporate the compiling process of WAMR with Mbed OS, so that functions from
                     both were available to our native program. WAMR uses CMake as its build system. The official Mbed
                     CLI uses Python, and this was a major problem. However, we were able to find a CMake build of Mbed
-                    OS, made by researchers at USC RPL. From then, we learnt CMake commands and included WAMR in the
-                    middle of the CMake files of Mbed. This allowed WAMR to be a part of Mbed static OS library avaiable
+                    OS, made by researchers at <a
+                        href="https://forums.mbed.com/t/mbed-cli-alternative-mbed-cmake/9357">USC RPL</a>. From then, we
+                    learned CMake commands and included WAMR in the
+                    middle of the CMake files of Mbed. This allowed WAMR to be a part of the Mbed static OS library
+                    available
                     to native programs.</li>
 
-                <li>Next, we needed to implement platform abstraction layer in WAMR. All of the OS dependent functions
-                    have been seperated down to a few functions, and the rest of WAMR is OS independent. We implemented
-                    the API required for WAMR interpretor.</li>
+                <li>Next, we needed to implement the platform abstraction layer in WAMR. All of the OS-dependent
+                    functions
+                    have been separated down to a few functions, and the rest of WAMR is OS independent. We implemented
+                    the API required for the WAMR interpreter.</li>
             </ul>
 
             <hr />
 
-            <p><strong>Comparing Different WASM Interpretors</strong></p>
+            <p><strong>Comparing Different WASM Interpreters</strong></p>
 
             <p>
-                With WAMR interpretor now avaiable on Mbed devices, we wrote a recursive Fibonacci
-                function on all the boards we had:
+                With WAMR interpreter now available on Mbed devices, we wrote a recursive Fibonacci
+                function for all the boards we had:
             </p>
             <ul>
                 <li>WAMR</li>
@@ -131,9 +141,9 @@
             </ul>
 
             <p>
-                WASM3 supports Arduino Nano 33 and is avaiable to use though Arduino IDE. However, it only consists of
-                an interpretor, while our WAMR porting to Mbed can be extended to allow WAMR JIT, WAMR AoT and its
-                libraries avaiable on targets supported by Mbed.
+                WASM3 supports Arduino Nano 33 and is available to use through Arduino IDE. However, it only consists of
+                an interpreter, while our WAMR porting to Mbed can be extended to allow WAMR JIT, WAMR AoT, and WAMR's
+                libraries are also available on targets supported by Mbed.
             </p>
 
         </div>
@@ -144,21 +154,22 @@
 
             <p>The forks of WAMR and Mbed-CMake with commits to make the porting work are described in our <a
                     href="https://github.com/utsavm9/wasm-for-arduino-mbed">Github repo's README</a>. Scripts to aid in
-                the development process are also avaiable.</p>
+                the development process are also available.</p>
 
             <p>
                 The <kbd>builds/</kbd> <a
                     href="https://github.com/utsavm9/wasm-for-arduino-mbed/tree/main/builds">folder</a> in the repo
                 contains two binaries with WAMR. Both of them were successfully compiled using
-                our build system for Mbed and WAMR. Both of then are built from the same native and WASM program, but
+                our build system for Mbed and WAMR. Both are built from the same native and WASM program, but
                 are target to two different boards: STM32 Nucleo and Arduino Nano 33.
             </p>
 
             <p>
-                We were able to verify implementation by running it on STM32 Nucleo board. <a
+                We were able to verify implementation by running it on a STM32 Nucleo board. <a
                     href="https://github.com/utsavm9/wasm-for-arduino-mbed/tree/main/builds">Results and details</a> are
-                added in the Github repo. Since STM32 Nucleo board is Mbed-enabled, we were able to run our binary
-                without worrying about the bootloader. The output demonstrated that WAMR is now running on Mbed device
+                added in the Github repo. Since the STM32 Nucleo board is Mbed-enabled, we were able to run our binary
+                without worrying about the bootloader. The output demonstrated that WAMR is now running on the Mbed
+                device
                 using Mbed's libraries.
             </p>
 
@@ -167,7 +178,8 @@
                 <p><a
                         href="https://github.com/utsavm9/wasm-for-arduino-mbed/blob/main/measurements/stm32_mbed_wamr.cpp">stm32_mbed_wamr.cpp</a>
                     set up WAMR to run WASM module of <a
-                        href="https://github.com/utsavm9/wasm-for-arduino-mbed/blob/main/measurements/fib_timed.c">fib_timed.c</a> on a STM32F411 Nucleo board.
+                        href="https://github.com/utsavm9/wasm-for-arduino-mbed/blob/main/measurements/fib_timed.c">fib_timed.c</a>
+                    on a STM32F411 Nucleo board.
                 </p>
                 <img src="https://raw.githubusercontent.com/utsavm9/wasm-for-arduino-mbed/main/docs/output.png" />
             </details>
@@ -176,7 +188,7 @@
         </div>
 
         <div class="card">
-            <h1>Strenths and Possible Improvements</h1>
+            <h1>Strengths and Possible Improvements</h1>
             <hr />
 
             <p>
@@ -184,7 +196,7 @@
             </p>
             <ul>
                 <li>WAMR now runs on <a href="https://github.com/utsavm9/mbed-cmake/tree/master/mbed-src/targets">all
-                        targets supported by Mbed-CMake</a>, which include numerous boards including those from
+                        targets supported by Mbed-CMake</a>, which includes numerous boards like those from
                     Nordic, STM, NXP, Renesas among others.</li>
             </ul>
 
@@ -197,17 +209,18 @@
                         href="https://github.com/utsavm9/wasm-for-arduino-mbed/tree/main/builds">builds folder</a> of
                     our repo. If we could solder well, WAMR binary could be run on Arduino Nano 33 board.
                 </li>
-                <li>Our implementation currently does not make avaiable the Arduino libraries. While there have been
-                    many CMake build systems for Arduino, many of them have been abandoned. If a CMake built system of
-                    Arduino is avaiable with the support for recent lauched<a
+                <li>Our implementation currently does not make available the Arduino libraries. While there have been
+                    many CMake build systems for Arduino, many of them have been abandoned. If a CMake build system of
+                    Arduino is available with the support for recent lauched <a
                         href="https://github.com/arduino/ArduinoCore-mbed">ArduinoCore-mbed</a>, then that build system
-                    can be integrated into Mbed-CMake to have Arduino libraries also avaiable to the native program.
+                    can be integrated into Mbed-CMake to have Arduino libraries also available to the native program.
                 </li>
                 <li>WAMR AoT compiler would be faster than the currently ported WAMR Interpretor, and is therefore of
                     much interest. By implementing <kbd>mmap</kbd> and related functions in the platform API layer, AoT
-                    would be avaiable on WAMR for Mbed.</li>
-                <li>By implementing the platform API extension available on WAMR, support for multi-threaded WASM
-                    applications along with applicatoin framework and remote application management would be avaiable in
+                    would be available on WAMR for Mbed.</li>
+                <li>By implementing the platform API extension on WAMR, support for multi-threaded WASM
+                    applications along with application framework and remote application management would be available
+                    in
                     WAMR for Mbed.</li>
             </ul>
         </div>
@@ -237,7 +250,7 @@
                 </span>.
             </p>
             <p>
-                While benenficial in terms of timing using its ahead-of-time approach, it could
+                While beneficial in terms of timing using its ahead-of-time approach, it could
                 be some
                 time before Wasmachine could be deployed. In additional research work has been made by the partnership
                 of Mozill, Red Hat, Intel, and Fastly. Together, the Bytecode Alliance, has made progress in areas of
@@ -250,9 +263,7 @@
                 </span>. Like
                 Wasmachine, it uses an AOT approach
                 to improve speed. This project's work uses the WAMR Porting Guide to port WAMR to a non-supported
-                platform, Mbed OS. This work will compare the timing results and include documentation to support
-                the
-                changes made for the this platform.
+                platform, Mbed OS.
             </p>
 
         </div>

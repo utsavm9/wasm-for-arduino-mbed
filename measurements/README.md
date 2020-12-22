@@ -1,6 +1,6 @@
 # Measurements
 
-fib.c will be run on:
+fib_timed.c will be run on:
 * WAMR Interpretor:
     * Zephyr OS (Nordic nRF52840 DK)
     * MBed OS (STM32F411 Nucleo-64 RE)
