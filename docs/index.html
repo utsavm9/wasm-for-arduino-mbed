@@ -95,6 +95,7 @@
                     appropriate dependencies for our application. This included installing CMake, GNU ARM, and Python 3
                     with some additional packages. For our Windows machines we also had to find a workable generator for
                     CMake, which turned out to be MinGW make. </li>
+
                 <li>We needed to incorporate together the compiling process of Mbed OS and WAMR, so that functions from
                     both were available to our native program. WAMR uses CMake as its build system. The official Mbed
                     CLI uses Python, and this was a major problem. However, we were able to find a CMake build of Mbed
@@ -131,10 +132,8 @@
 
             <p>
                 WASM3 supports Arduino Nano 33 and is avaiable to use though Arduino IDE. However, it only consists of
-                an
-                interpretor, while our WAMR porting to Mbed can be extended to allow WAMR JIT, WAMR AoT and its
-                libraries
-                avaiable on targets supported by Mbed.
+                an interpretor, while our WAMR porting to Mbed can be extended to allow WAMR JIT, WAMR AoT and its
+                libraries avaiable on targets supported by Mbed.
             </p>
 
         </div>
@@ -142,6 +141,10 @@
         <div class="card">
             <h1>Results</h1>
             <hr />
+
+            <p>The forks of WAMR and Mbed-CMake with commits to make the porting work are described in our <a
+                    href="https://github.com/utsavm9/wasm-for-arduino-mbed">Github repo's README</a>. Scripts to aid in
+                the development process are also avaiable.</p>
 
             <p>
                 The <kbd>builds/</kbd> <a
@@ -163,18 +166,40 @@
         </div>
 
         <div class="card">
-            <h1>Strenths and Weaknesses</h1>
+            <h1>Strenths and Further Improvements</h1>
             <hr />
 
             <p>
                 Strengths:
-
             </p>
+            <ul>
+                <li>WAMR now runs on <a href="https://github.com/utsavm9/mbed-cmake/tree/master/mbed-src/targets">all
+                        targets supported by Mbed-CMake</a>, which include numerous boards including those from
+                    Nordic, STM, NXP, Renesas among others.</li>
+            </ul>
 
             <p>
-                Weaknessess:
-
+                Further Improvements:
             </p>
+            <ul>
+                <li>We identified how to attach a J-Link debugger to our Arduino Nano 33 board and figured out at what
+                    offset we might have flashed it. Resources collected in the <a
+                        href="https://github.com/utsavm9/wasm-for-arduino-mbed/tree/main/builds">builds folder</a> of
+                    our repo. If we could solder well, WAMR binary could be run on Arduino Nano 33 board.
+                </li>
+                <li>Our implementation currently does not make avaiable the Arduino libraries. While there have been
+                    many CMake build systems for Arduino, many of them have been abandoned. If a CMake built system of
+                    Arduino is avaiable with the support for recent lauched<a
+                        href="https://github.com/arduino/ArduinoCore-mbed">ArduinoCore-mbed</a>, then that build system
+                    can be integrated into Mbed-CMake to have Arduino libraries also avaiable to the native program.
+                </li>
+                <li>WAMR AoT compiler would be faster than the currently ported WAMR Interpretor, and is therefore of
+                    much interest. By implementing <kbd>mmap</kbd> and related functions in the platform API layer, AoT
+                    would be avaiable on WAMR for Mbed.</li>
+                <li>By implementing the platform API extension available on WAMR, support for multi-threaded WASM
+                    applications along with applicatoin framework and remote application management would be avaiable in
+                    WAMR for Mbed.</li>
+            </ul>
         </div>
 
         <div class="card">
