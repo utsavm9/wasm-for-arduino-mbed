@@ -61,5 +61,6 @@ body {
 }
 
 li {
+    color: black !important;
     margin: 0 0 5px 0;
 }
