@@ -41,7 +41,6 @@ kbd {
 
 body {
     background-image: url("back.png");
-
 }
 
 .card {
@@ -49,6 +48,7 @@ body {
     padding: 25px;
     transition: 0.4s;
     margin-bottom: 20px;
+    line-height: 1.6;
 }
 
 .card:hover {
@@ -64,3 +64,4 @@ li {
     color: black !important;
     margin: 0 0 5px 0;
 }
+

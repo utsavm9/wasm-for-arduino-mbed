@@ -1,305 +1,294 @@
 <!DOCTYPE html>
 
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>WASM for Arduino/Mbed | ECE M202A Project</title>
 
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link
-            rel="stylesheet"
-            type="text/css"
-            href="https://pages-themes.github.io/cayman/assets/css/style.css?v=bab38dbfd764a3259db85a3d47696439eb22ebd3"
-        />
-        <link rel="shortcut icon" type="image/png" href="favicon.jpeg" />
-        <link rel="stylesheet" type="text/css" href="index.css" />
-    </head>
+<head>
+    <meta charset="UTF-8" />
+    <title>WASM for Mbed OS | ECE M202A Project</title>
 
-    <body>
-        <header class="page-header" role="banner">
-            <h1 class="project-name">WASM for Arduino/Mbed</h1>
-            <h2 class="project-tagline">Project for ECE M202A - Embedded Systems</h2>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css"
+        href="https://pages-themes.github.io/cayman/assets/css/style.css?v=bab38dbfd764a3259db85a3d47696439eb22ebd3" />
+    <link rel="shortcut icon" type="image/png" href="favicon.jpeg" />
+    <link rel="stylesheet" type="text/css" href="index.css" />
+</head>
 
-            <a href="https://github.com/utsavm9/wasm-for-arduino-mbed" target="_blank" class="btn">GitHub Repo</a>
-            <a href="https://github.com/utsavm9/wasm-for-arduino-mbed/tree/main/docs" target="_blank" class="btn">
-                Website Folder
-            </a>
-        </header>
+<body>
+    <header class="page-header" role="banner">
+        <h1 class="project-name">WASM for Mbed OS</h1>
+        <h2 class="project-tagline">Project for ECE M202A - Embedded Systems</h2>
 
-        <main id="content" class="main-content" role="main">
-            <div class="card">
-                <h1>Proposal Abstract</h1>
-                <hr />
+        <a href="https://github.com/utsavm9/wasm-for-arduino-mbed" target="_blank" class="btn">GitHub Repo</a>
+        <a href="https://github.com/utsavm9/wasm-for-arduino-mbed/tree/main/docs" target="_blank" class="btn">
+            Website Folder
+        </a>
+    </header>
 
-                <p>
-                    Our goal in this project is to develop a sensor interface that would allow a WebAssembly Runtime to
-                    run WebAssembly application on an Arduino Nano 33 BLE Sense (nRF5280) board and be able to utilize the sensors present on the
-                    board. Applications run inside a WebAssembly runtime are more secure than C applications compiled to
-                    run natively. We want to use the security features present in a WebAssembly runtime and develop
-                    applications which once compiled to WebAssembly, can execute on different boards. The main challenge
-                    we face in this project is getting WebAssembly to work full-fledged on Arduino/Mbed embedded device
-                    so that the application can access and control the sensors present on the board. We want WebAssembly
-                    running on our embedded device and have it communicate with the proper pinouts on the device.
-                </p>
+    <main id="content" class="main-content" role="main">
 
-                <p>
-                    We also plan to quantify any additional memory overhead or runtime costs that are by using a
-                    WebAssemblytime as opposed to compiling and running executables natively.
-                </p>
+        <div class="card">
+            <h1>Goals Accomplished</h1>
+            <hr />
 
-                <p>
-                    <b>Deliverables</b>: A Sensor interface to existing WebAssembly Runtime targeted to run on
-                    Andruino/Mbed, this includes our code and appropriate documentation throughout the process.
-                </p>
-            </div>
+            <ul>
+                <li> Ported WebAssembly Micro Runtime
+                    (<a href="https://github.com/bytecodealliance/wasm-micro-runtime">WAMR</a>) to run on targets
+                    supported
+                    by <a href="https://os.mbed.com/mbed-os/">ARM Mbed OS</a>.</li>
+                <li>Demonstrated ported WAMR works by compiling to different targets and running on one. </li>
+                <li>Measured execution time of WASM interpreters on various boards.</li>
+            </ul>
+        </div>
 
-            
-             <div class="card">
-                <h1>Project Goals</h1>
-                <hr />
+        <div class="card">
+            <h1>Proposal Abstract</h1>
+            <hr />
 
-                <p>
-                   Develop a sensor interface that would allow WebAssembly Micro Runtime (WAMR) to run a WebAssembly application on an Arduino/Mbed OS.
-                     <li>Porting WAMR to Mbed OS
-                     <li>Evaluate WAMR on Mbed OS
-                </p>
+            <p>
+                Our goal in this project is to develop a sensor interface that would allow a WebAssembly Runtime to
+                run WebAssembly application on an Arduino Nano 33 BLE Sense (nRF5280) board and be able to utilize the
+                sensors present on the
+                board. Applications run inside a WebAssembly runtime are more secure than C applications compiled to
+                run natively. We want to use the security features present in a WebAssembly runtime and develop
+                applications which once compiled to WebAssembly, can execute on different boards. The main challenge
+                we face in this project is getting WebAssembly to work full-fledged on Arduino/Mbed embedded device
+                so that the application can access and control the sensors present on the board. We want WebAssembly
+                running on our embedded device and have it communicate with the proper pinouts on the device.
+            </p>
 
-                
-            </div>
-            
-             <div class="card">
-                <h1>Technical Approach</h1>
-                <hr />
-                <p>
-                   <ol>
-                       <li>Running WebAssembly Micro Runtime (WAMR) on Zephyr Real Time Operating System (RTOS)</li>
-                           
-                       <li>Porting WAMR to Mbed OS</li>
-                          
-                       <li>Evaluate WAMR on Mbed OS</li>
-                           
-                   </ol>
-                </p>
-                <p>
-                    Hardware
-                   <li>Arduino Nano 33 BLE Sense
-                   <li>Micro USB Cable
-                   <li>NUCLEO-F411RE Board
-                   <li>USB Mini-B to USB-A Cable
-                   <li>LED
-                </p>
+            <p>
+                We also plan to quantify any additional memory overhead or runtime costs that are by using a
+                WebAssemblytime as opposed to compiling and running executables natively.
+            </p>
 
-                
-            </div>
-            
-             <div class="card">
-                <h1>Implementation, Evaluation, Success Metrics, and Key Findings</h1>
-                <hr />
-                 <p>
-                    Implementation:
-                 <ol>
-                       <li>Running WebAssembly Micro Runtime (WAMR) on Zephyr Real Time Operating System (RTOS)</li>
-                            <p>
-                                Using code from ByteCode Alliance, WAMR was set up for Zephyr OS...This helped in understanding WAMR....because.... Main lessons from implementing this were....For more detail about this implementation see doc....
-                            </p>
-                       </li>
-                       <li>Porting WAMR to Mbed OS</li>
-                            <p>
-                                We ported WAMR using files from....This requeired adjustment for Mbed OS API..We did not need to include math library or...Might talk about nucleo....Jtag setup....
-                            </p>
-                       </li>
-                       <li>Evaluate WAMR on Mbed OS</li>
-                            <p>
-                                Mbed-Cmake was used to configure Mbed for Arduino. Its benefits include storage of code in a Git repository and less dependencies 
-                                needed to install. Using the Getting Started guide, we followed the steps provided. We cloned the latest version of the example project
-                                and its submodules which included an example "hello world" C++ project and Mbed configuration files. Then we set up the toolchain and the 
-                                appropriate dependencies for our application. This included installing CMake, GNU ARM, and Python 3 with some additional packages. For our 
-                                Windows machines we also took an additional step of using MinGW. The documentation shows some of our additional changes made as we worked
-                                through this step. The commands included to use MinGW CMake were not functional so we had to change the command. The second step in this process
-                                was configuing Mbed for our Arduino device. This included installing the dependencies using the ./mbed-cmake/mbed-src/requirements.txt file.
-                                We also made additional edits to account for our device not having an SD card slot. We ran the ./mbed-cmake/configure_for_target.py fiel 
-                                and used MinGW32 with cmake to run the initial configuration and mingw32-make to run the hello-world example. Some of these commands, as 
-                                given, were also not working for our machines and edits can be found in our documentation. With the initial setup completed and the 
-                                hello_world example correctly running, we were able to create our own file to run................................
-                                
-                                succesful implementation of the code, as shown in demonstration, we implemented code for timing...Timing inludes from (start) to (end)....in all timing comparisons we used the same Fibonacci 21...                       
-                            </p>
-                       </li>
-                       <li>Evaluate WASM3 and Compare to WAMR on MBed</li>
-                            <p>
-                                Wasm3 is a WASM interpreter that runs on embedded devices such as Arduinos. In our project, 
-                                we used Wasm3 as a reference point for the ported version of WAMR. In order to use Wasm3 for 
-                                testing the speed, we had to write an Arduino program that uses Wasm3 to execute a custom WASM 
-                                app that we wrote. The custom WASM app was written in C++ and then compiled to WASM. The WASM 
-                                app computes the 24th fibonnaci number in a recursive and time-consuming manner.
-                            </p>
+            <p>
+                <b>Deliverables</b>: A Sensor interface to existing WebAssembly Runtime targeted to run on
+                Andruino/Mbed, this includes our code and appropriate documentation throughout the process.
+            </p>
+        </div>
 
-                            <p>
-                                The process of writing a program to be compiled to WASM is as follows. First, we write a C++ 
-                                <a href="https://github.com/utsavm9/wasm-for-arduino-mbed/blob/main/wasm3-arduino/wasm_apps/custom_app/app.cpp">program</a> 
-                                in the form of an Arduino program with <span style="font-family: 'Courier New', Courier, monospace;">loop()</span> and 
-                                <span style="font-family: 'Courier New', Courier, monospace;">setup()</span> functions. The main difference is that there 
-                                is an <span style="font-family: 'Courier New', Courier, monospace;">arduino_api.h</span> and a 
-                                <span style="font-family:'Courier New', Courier, monospace;">WASM_EXPORT _start()</span> function. Once the C++ 
-                                program is written, we can now compile it to WASM code. This is done via the 
-                                <span style="font-family: 'Courier New', Courier, monospace;">build.sh</span> script. 
-                                The dependencies in the script include things like wasicc, which compiles C++ to WebAssembly.
-                            </p>
-                       </li>   
-                   </ol>
-                </p>
-                <p>
-                   Evaluation:
-                </p>
-                <p>
-                   Success Metrics and Key Findings:
-                </p>
+        <div class="card">
+            <h1>Technical Approach</h1>
+            <hr />
 
+            <p><strong>Running WAMR on Zephyr OS.</strong></p>
 
-                
-            </div>
+            <p>
+                First, we got familiar with building projects for embedded systems. Getting a Blinky project running on
+                Zephyr took the most time in this project. We were inexperienced
+                with interacting so closely with build tools and most installed software needed to be adjusted to
+                actually work. All this was further complicated by the fact
+                that the latest version of CMake was buggy (<a
+                    href="https://github.com/zephyrproject-rtos/zephyr/issues/30232">zephyr#30232</a>). However, Zephyr
+                developers in their Slack channel helped us out.
+            </p>
 
-            <div class="card">
-                <h1>Relevant Work and Resources</h1>
-                <hr />
-                <p>
-                    WebAssembly's popularity has increased and with that so has the research into other applications of the binary instruction format. Despite its benefits, WebAssembly has been shown to be 45% slower than its native commponent when 
-                    [1]. This project invokes WAMR, but other run-times also exist.  WASI has been created to be the run time that accesses and executes systems calls [2]. Work such as the IoT OS, Wasmachine 
-                    has been created to be "a secure runtime/OS aiming to run WebAssembly applications faster than bare-metal machine"[2]. While benenficial in terms of timing using its ahead-of-time approach, it could be some
-                    time before Wasmachine could be deployed. In additional research work has been made by the partnership of Mozill, Red Hat, Intel, and Fastly. Together, the Bytecode Alliance, has made progress in areas of code generation, run-time, 
-                    and micro-runtime. Their work with the WebAssembly MicroRuntime (WAMR) has been created for Linux, macOS, Zephyr, AliOS Things, and VxWorks and has support for x86_32, x86_64, Arm, and MIPS [3]. Like Wasmachine, it uses an AOT approach 
-                    to improve speed. This project's work uses the WAMR Porting Guide to port WAMR to a non-supported platform, Mbed OS. This work will compare the timing results and include documentation to support the changes made for the this platform.
-                </p>
-               
-            </div>
-            
-            <div class="card">
-                <h1>Strenths and Weaknesses</h1>
-                <hr />
+            <p>WAMR already supports Zephyr OS and it has a mini-product avaiable too. We had a Nordic nRF52840 DK board
+                available, and so we decided to run WAMR on it. The mini-product is a sample
+                program which sets-up the WAMR runtime, calls its main function and exited. Setting up a running
+                baseline made us understand these key concepts about WAMR: </p>
 
-                <p>
-                    Strengths:
-                    
-                </p>
+            <ul>
+                <li>A C/C++ (native) program needs to set-up WAMR runtime. This program is what we flash to the board.
+                </li>
+                <li>The WAMR runtime needs to know how much stack and heap its modules can have. </li>
+                <li>WASM program is not sent over USB in mini-product, but its binary is encoded in a C string avaiable
+                    to the native program.</li>
+                <li>Our native program can pass arguments and store the result value from any function in WASM program,
+                    including main().</li>
+                <li>The WASM program can pass control to any functions defined natively.</li>
+            </ul>
 
-                <p>
-                    Weaknessess:
-                    
-                </p>
+            <hr />
 
-                
-            </div>
+            <p><strong>Compiling to WASM Modules</strong></p>
 
-            
-            
-             <div class="card">
-                <h1>Important Links</h1>
-                <hr />
-                 <ul>
-                    <li>
-                        <a href="https://github.com/bytecodealliance/wasm-micro-runtime"> WebAssembly Micro Runtime </a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/conix-center/edge-rm/tree/master/agent/zephyr/app">
-                            Edge Resource Manager - Zephyr Agent Application
-                        </a>
-                    </li>
-                    <li>
-                        <a
-                            href="https://github.com/bytecodealliance/wasm-micro-runtime/blob/main/doc/build_wamr.md#zephyr"
-                        >
-                            Running WAMR on board with Zephyr OS
-                        </a>
-                    </li>
+            <p>
+                Once we had the WASM program provided with WAMR running on Zephyr, we wanted to run our own WASM
+                programs. We learnt that WASI-SDK comes with a CLang compiler which can produce WASM bytecode from C
+                programs. Also, appropriate flags needed to be set so that the linker does not complain of missing
+                main() when it is not needed, and also to export other functions. There exported functions has their
+                definition missing from the WASM module. WAMR runtime can link functions from native program to these
+                exported functions. This allows the WASM program to call any needed native functions, for example to
+                blink an LED.
+            </p>
+
+            <hr />
+
+            <p><strong>Porting WAMR to Mbed</strong></p>
+
+            <ul>
+                <li>We first needed to set-up our system so that it builds Mbed OS. We set up the toolchain and the
+                    appropriate dependencies for our application. This included installing CMake, GNU ARM, and Python 3
+                    with some additional packages. For our Windows machines we also had to find a workable generator for
+                    CMake, which turned out to be MinGW make. </li>
+                <li>We needed to incorporate together the compiling process of Mbed OS and WAMR, so that functions from
+                    both were available to our native program. WAMR uses CMake as its build system. The official Mbed
+                    CLI uses Python, and this was a major problem. However, we were able to find a CMake build of Mbed
+                    OS, made by researchers at USC RPL. From then, we learnt CMake commands and included WAMR in the
+                    middle of the CMake files of Mbed. This allowed WAMR to be a part of Mbed static OS library avaiable
+                    to native programs.</li>
+
+                <li>Next, we needed to implement platform abstraction layer in WAMR. All of the OS dependent functions
+                    have been seperated down to a few functions, and the rest of WAMR is OS independent. We implemented
+                    the API required for WAMR interpretor.</li>
+            </ul>
+
+            <hr />
+
+            <p><strong>Comparing Different WASM Interpretors</strong></p>
+
+            <p>
+                With WAMR interpretor now avaiable on Mbed devices, we wrote a recursive Fibonacci
+                function on all the boards we had:
+            </p>
+            <ul>
+                <li>WAMR</li>
+                <ul>
+                    <li>Zephyr OS on Nordic nRF52840-DK</li>
+                    <li>Mbed OS on STM32 Nucleo F411-RE</li>
                 </ul>
+                <li>WASM3</li>
                 <ul>
                     <li>
-                        <a href="https://github.com/bytecodealliance/wasm-micro-runtime"> Final Presentation PDF </a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/conix-center/edge-rm/tree/master/agent/zephyr/app">
-                           Data Sets
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/wasm3/wasm3-arduino"> WASM3 GitHub</a>
+                        Mbed OS on Arduino Nano 33 BLE
                     </li>
                 </ul>
-            </div>
-            
-             <div class="card">
-                <h1>References</h1>
-                <hr />
-                    <p>
-                        <ol>
-                            <li>A. Jangda, B. Powers, E. D. Berger and A. Guha, "Not so fast: Analyzing the performance of webassembly vs. native code", 2019 {USENIX} Annual Technical Conference ({USENIX}{ATC}19), pp. 107-120, 2019.</li>
-                            <li>E. Wen and G. Weber, "Wasmachine: Bring IoT up to Speed with A WebAssembly OS," 2020 IEEE International Conference on Pervasive Computing and Communications Workshops (PerCom Workshops), Austin, TX, USA, 2020, pp. 1-4, doi: 10.1109/PerComWorkshops48775.2020.9156135.</li>
-                            <li>Bytecode Alliance, 2019. [Online]. Available: https://bytecodealliance.org/. [Accessed: 01-Dec-2020]. </li>
-                        </ol>
-                     </p>
-            </div>
-            
-                 
-            <div class="card">
-                <h1>Team Members and Contributions</h1>
-                <hr />
+            </ul>
 
-                <ul>
-                    <li>
-                        <a href="mailto:arelysnavarro@g.ucla.edu"> Arelys Navarro </a>
-                        <ul>
-                            <li>Porting Mbed to Arduino - File configuration, testing, and compiling.</li>
-                            <li>WASM3 Implementation - Debugging</li>
-                            <li>Research - References reserch, timing comparisons of other implementations, AOT vs JIT research</li>
-                            <li>Final Documentation - Presentation, report</li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="mailto:howardx@g.ucla.edu"> Howard Xie </a>
-                        <ul>
-                            <li>WASM3 Implementation</li>
-                            <ul>
-                                <li>Adapted Wasm3 to our project</li>
-                                <li>Wrote programs and compiled to WebAssembly</li>
-                                <li>Ran WASM program on Arduino using Wasm3 interpreter</li>
-                                <li>Recorded timing and memory data for evaluation</li>
-                            </ul>
-                            <li>Final Documentation - Presentation, report</li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="mailto:utsavm9@g.ucla.edu"> Utsav Munendra </a>
-                        <ul>
-                            <li>Zephyr Implementation - Zephyr setup and compilation</li>
-                            <li>Porting Mbed to Arduino - Final complilation of WAMR</li>
-                            <li>Mbed on Nucleo - WAMR setup</li>
-                            <li>Final Documentation - Presentation, report</li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>     
-              
-            <div class="card">
-                <h1>Proposed Timeline</h1>
-                <hr />
+            <p>
+                WASM3 supports Arduino Nano 33 and is avaiable to use though Arduino IDE. However, it only consists of
+                an
+                interpretor, while our WAMR porting to Mbed can be extended to allow WAMR JIT, WAMR AoT and its
+                libraries
+                avaiable on targets supported by Mbed.
+            </p>
 
-                <ul>
-                    <li>Week 5 (11/6): Meet with Botong Ou for guidance and collect baseline board</li>
-                    <li>Week 6 (11/09): Analyse existing literature and add it to the report.</li>
-                    <li>Week 6 (11/10): Have WASM running on Zephyr OS device for reference</li>
-                    <li>
-                        Week 6 (11/13): Learn how WASI-SN works with Zephyr, and figure out what we need to code to make
-                        it work for Arduino.
-                    </li>
-                    <li>Week 7: Report on preliminary design and results.</li>
-                    <li>Week 8 (11/27): Have a WebAssembly Runtime working on our Arduino board.</li>
-                    <li>Week 9 (12/04): Measure statistics on the overheads introduced by using WebAssembly</li>
-                    <li>Week 10 (12/11): Finish project report and code.</li>
-                    <li>Week 11 (12/18): Finish the video presentation.</li>
-                </ul>
-            </div>
-                 
-                 
-        </main>
-    </body>
+        </div>
+
+
+        <div class="card">
+            <h1>Relevant Work and Resources</h1>
+            <hr />
+            <p>
+                WebAssembly's popularity has increased and with that so has the research into other applications of the
+                binary instruction format. Despite its benefits, WebAssembly has been shown to be 45% slower than its
+                native commponent when
+                [1]. This project invokes WAMR, but other run-times also exist. WASI has been created to be the run time
+                that accesses and executes systems calls [2]. Work such as the IoT OS, Wasmachine
+                has been created to be "a secure runtime/OS aiming to run WebAssembly applications faster than
+                bare-metal machine"[2]. While benenficial in terms of timing using its ahead-of-time approach, it could
+                be some
+                time before Wasmachine could be deployed. In additional research work has been made by the partnership
+                of Mozill, Red Hat, Intel, and Fastly. Together, the Bytecode Alliance, has made progress in areas of
+                code generation, run-time,
+                and micro-runtime. Their work with the WebAssembly MicroRuntime (WAMR) has been created for Linux,
+                macOS, Zephyr, AliOS Things, and VxWorks and has support for x86_32, x86_64, Arm, and MIPS [3]. Like
+                Wasmachine, it uses an AOT approach
+                to improve speed. This project's work uses the WAMR Porting Guide to port WAMR to a non-supported
+                platform, Mbed OS. This work will compare the timing results and include documentation to support the
+                changes made for the this platform.
+            </p>
+
+        </div>
+
+        <!-- <div class="card">
+            <h1>Strenths and Weaknesses</h1>
+            <hr />
+
+            <p>
+                Strengths:
+
+            </p>
+
+            <p>
+                Weaknessess:
+
+            </p>
+
+
+        </div> -->
+
+
+
+        <div class="card">
+            <h1>References</h1>
+            <hr />
+            <ul>
+                <li>
+                    <a href="https://github.com/bytecodealliance/wasm-micro-runtime"> WebAssembly Micro Runtime </a>
+                </li>
+                <li>
+                    <a href="https://github.com/conix-center/edge-rm/tree/master/agent/zephyr/app">
+                        Edge Resource Manager - Zephyr Agent Application
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/bytecodealliance/wasm-micro-runtime/blob/main/doc/build_wamr.md#zephyr">
+                        Running WAMR on board with Zephyr OS
+                    </a>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <a href="https://github.com/bytecodealliance/wasm-micro-runtime"> Final Presentation PDF </a>
+                </li>
+                <li>
+                    <a href="https://github.com/conix-center/edge-rm/tree/master/agent/zephyr/app">
+                        Data Sets
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/wasm3/wasm3-arduino"> WASM3 GitHub</a>
+                </li>
+            </ul>
+        </div>
+
+
+        <div class="card">
+            <h1>Team Members and Contributions</h1>
+            <hr />
+
+            <ul>
+                <li>
+                    <a href="mailto:arelysnavarro@g.ucla.edu"> Arelys Navarro </a>
+                    <ul>
+                        <li>Porting Mbed to Arduino - File configuration, testing, and compiling.</li>
+                        <li>Using WASM3 - Debugging</li>
+                        <li>Research - References reserch, timing comparisons of other implementations, AOT vs JIT
+                            research</li>
+                        <li>Final Documentation - Presentation, report</li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="mailto:howardx@g.ucla.edu"> Howard Xie </a>
+                    <ul>
+                        <li>Using WASM3</li>
+                        <ul>
+                            <li>Adapted Wasm3 to our project</li>
+                            <li>Wrote program and compiled to WebAssembly</li>
+                            <li>Ran WASM program on Arduino using Wasm3 interpreter</li>
+                            <li>Recorded timing for evaluation</li>
+                        </ul>
+                        <li>Final Documentation - Presentation, report</li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="mailto:utsavm9@g.ucla.edu"> Utsav Munendra </a>
+                    <ul id="utsav">
+                        <li>Ran WAMR on Zephyr OS</li>
+                        <li>Combined CMake files of WAMR and Mbed</li>
+                        <li>Coded the platform API layer of WAMR for Mbed</li>
+                        <li>Wrote scripts, made graphs, managed Git repo</li>
+                        <li>Website code and content</li>
+                        <li>🔥Burnt off metal pads on two Arduino boards while soldering🔥</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+
+    </main>
+</body>
+
 </html>
