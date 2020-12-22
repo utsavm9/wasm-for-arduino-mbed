@@ -33,7 +33,7 @@
 
                 <p>
                     Our goal in this project is to develop a sensor interface that would allow a WebAssembly Runtime to
-                    run WebAssembly application on an nRF5280 board and be able to utilize the sensors present on the
+                    run WebAssembly application on an Arduino Nano 33 BLE Sense (nRF5280) board and be able to utilize the sensors present on the
                     board. Applications run inside a WebAssembly runtime are more secure than C applications compiled to
                     run natively. We want to use the security features present in a WebAssembly runtime and develop
                     applications which once compiled to WebAssembly, can execute on different boards. The main challenge
@@ -49,7 +49,7 @@
 
                 <p>
                     <b>Deliverables</b>: A Sensor interface to existing WebAssembly Runtime targeted to run on
-                    Andruino/Mbed.
+                    Andruino/Mbed, this includes our code and appropriate ReadMe's.
                 </p>
             </div>
 
@@ -118,6 +118,8 @@
              <div class="card">
                 <h1>Implementation, Evaluation, Success Metrics, and Key Findings</h1>
                 <hr />
+                 <p>
+                    Implementation:
                  <ol>
                        <li>Running WebAssembly Micro Runtime (WAMR) on Zephyr Real Time Operating System (RTOS)</li>
                             Using code from ByteCode Alliance, WAMR was set up for Zephyr OS...This helped in understanding WAMR....because.... Main lessons from implementing this were....For more detail about this implementation see doc....
@@ -132,8 +134,12 @@
                             Wasm3 is a WASM interpreter that runs on embedded devices such as Arduinos. In our project, we used Wasm3 as a reference point for the ported version of WAMR. In order to use Wasm3 for testing the speed, we had to write an Arduino program that uses Wasm3 to execute a custom WASM app that we wrote. The custom WASM app was written in C++ and then compiled to WASM. The WASM app computes the 24th fibonnaci number in a recursive and time-consuming manner.
                        </li>   
                    </ol>
+                </p>
                 <p>
-                   to be completed.
+                   Evaluation:
+                </p>
+                <p>
+                   Success Metrics and Key Findings:
                 </p>
 
 
@@ -141,9 +147,16 @@
             </div>
 
             <div class="card">
-                <h1>Relevant Resources</h1>
+                <h1>Relevant Work and Resources</h1>
                 <hr />
-
+                <p>
+                    WebAssembly's popularity has increased and with that so has the research into other applications of the binary instruction format. Despite its benefits, WebAssembly has been shown to be 45% slower than its native commponent when 
+                    [1]. This project invokes WAMR, but other run-times also exist.  WASI has been created to be the run time that accesses and executes systems calls [2]. Work such as the IoT OS, Wasmachine 
+                    has been created to be "a secure runtime/OS aiming to run WebAssembly applications faster than bare-metal machine"[2]. While benenficial in terms of timing using its ahead-of-time approach, it could be some
+                    time before Wasmachine could be deployed. In additional research work has been made by the partnership of Mozill, Red Hat, Intel, and Fastly. Together, the Bytecode Alliance, has made progress in areas of code generation, run-time, 
+                    and micro-runtime. Their work with the WebAssembly MicroRuntime (WAMR) has been created for Linux, macOS, Zephyr, AliOS Things, and VxWorks and has support for x86_32, x86_64, Arm, and MIPS [3]. Like Wasmachine, it uses an AOT approach 
+                    to improve speed. This project's work uses the WAMR Porting Guide to port WAMR to a non-supported platform, Mbed OS. This work will compare the timing results and include documentation to support the changes made for the this platform.
+                </p>
                 <ul>
                     <li>
                         <a href="https://github.com/bytecodealliance/wasm-micro-runtime"> WebAssembly Micro Runtime </a>
@@ -168,11 +181,13 @@
                 <hr />
 
                 <p>
-                    strengths to be completed.
+                    Strengths:
+                    
                 </p>
 
                 <p>
-                    weaknessess to be completed.
+                    Weaknessess:
+                    
                 </p>
 
                 
@@ -231,6 +246,7 @@
                         <ol>
                             <li>A. Jangda, B. Powers, E. D. Berger and A. Guha, "Not so fast: Analyzing the performance of webassembly vs. native code", 2019 {USENIX} Annual Technical Conference ({USENIX}{ATC}19), pp. 107-120, 2019.</li>
                             <li>E. Wen and G. Weber, "Wasmachine: Bring IoT up to Speed with A WebAssembly OS," 2020 IEEE International Conference on Pervasive Computing and Communications Workshops (PerCom Workshops), Austin, TX, USA, 2020, pp. 1-4, doi: 10.1109/PerComWorkshops48775.2020.9156135.</li>
+                            <li>Bytecode Alliance, 2019. [Online]. Available: https://bytecodealliance.org/. [Accessed: 01-Dec-2020]. </li>
                         </ol/
                      </p>
 
