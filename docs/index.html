@@ -49,29 +49,10 @@
 
                 <p>
                     <b>Deliverables</b>: A Sensor interface to existing WebAssembly Runtime targeted to run on
-                    Andruino/Mbed, this includes our code and appropriate ReadMe's.
+                    Andruino/Mbed, this includes our code and appropriate documentation throughout the process.
                 </p>
             </div>
 
-            <div class="card">
-                <h1>Proposed Timeline</h1>
-                <hr />
-
-                <ul>
-                    <li>Week 5 (11/6): Meet with Botong Ou for guidance and collect baseline board</li>
-                    <li>Week 6 (11/09): Analyse existing literature and add it to the report.</li>
-                    <li>Week 6 (11/10): Have WASM running on Zephyr OS device for reference</li>
-                    <li>
-                        Week 6 (11/13): Learn how WASI-SN works with Zephyr, and figure out what we need to code to make
-                        it work for Arduino.
-                    </li>
-                    <li>Week 7: Report on preliminary design and results.</li>
-                    <li>Week 8 (11/27): Have a WebAssembly Runtime working on our Arduino board.</li>
-                    <li>Week 9 (12/04): Measure statistics on the overheads introduced by using WebAssembly</li>
-                    <li>Week 10 (12/11): Finish project report and code.</li>
-                    <li>Week 11 (12/18): Finish the video presentation.</li>
-                </ul>
-            </div>
             
              <div class="card">
                 <h1>Project Goals</h1>
@@ -106,10 +87,6 @@
                    <li>NUCLEO-F411RE Board
                    <li>USB Mini-B to USB-A Cable
                    <li>LED
-                   <li>Adafruit SWD Cable Breakout Board
-                   <li>Breadboard
-                   <li>Jumper Cables
-                   <li>Soldering kit
                 </p>
 
                 
@@ -133,6 +110,18 @@
                        </li>
                        <li>Evaluate WAMR on Mbed OS</li>
                             <p>
+                                Mbed-Cmake was used to configure Mbed for Arduino. Its benefits include storage of code in a Git repository and less dependencies 
+                                needed to install. Using the Getting Started guide, we followed the steps provided. We cloned the latest version of the example project
+                                and its submodules which included an example "hello world" C++ project and Mbed configuration files. Then we set up the toolchain and the 
+                                appropriate dependencies for our application. This included installing CMake, GNU ARM, and Python 3 with some additional packages. For our 
+                                Windows machines we also took an additional step of using MinGW. The documentation shows some of our additional changes made as we worked
+                                through this step. The commands included to use MinGW CMake were not functional so we had to change the command. The second step in this process
+                                was configuing Mbed for our Arduino device. This included installing the dependencies using the ./mbed-cmake/mbed-src/requirements.txt file.
+                                We also made additional edits to account for our device not having an SD card slot. We ran the ./mbed-cmake/configure_for_target.py fiel 
+                                and used MinGW32 with cmake to run the initial configuration and mingw32-make to run the hello-world example. Some of these commands, as 
+                                given, were also not working for our machines and edits can be found in our documentation. With the initial setup completed and the 
+                                hello_world example correctly running, we were able to create our own file to run................................
+                                
                                 succesful implementation of the code, as shown in demonstration, we implemented code for timing...Timing inludes from (start) to (end)....in all timing comparisons we used the same Fibonacci 21...                       
                             </p>
                        </li>
@@ -181,23 +170,7 @@
                     and micro-runtime. Their work with the WebAssembly MicroRuntime (WAMR) has been created for Linux, macOS, Zephyr, AliOS Things, and VxWorks and has support for x86_32, x86_64, Arm, and MIPS [3]. Like Wasmachine, it uses an AOT approach 
                     to improve speed. This project's work uses the WAMR Porting Guide to port WAMR to a non-supported platform, Mbed OS. This work will compare the timing results and include documentation to support the changes made for the this platform.
                 </p>
-                <ul>
-                    <li>
-                        <a href="https://github.com/bytecodealliance/wasm-micro-runtime"> WebAssembly Micro Runtime </a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/conix-center/edge-rm/tree/master/agent/zephyr/app">
-                            Edge Resource Manager - Zephyr Agent Application
-                        </a>
-                    </li>
-                    <li>
-                        <a
-                            href="https://github.com/bytecodealliance/wasm-micro-runtime/blob/main/doc/build_wamr.md#zephyr"
-                        >
-                            Running WAMR on board with Zephyr OS
-                        </a>
-                    </li>
-                </ul>
+               
             </div>
             
             <div class="card">
@@ -217,37 +190,28 @@
                 
             </div>
 
-            <div class="card">
-                <h1>Team Members and Contributions</h1>
-                <hr />
-
-                <ul>
-                    <li>
-                        <a href="mailto:arelysnavarro@g.ucla.edu"> Arelys Navarro </a>
-                        Porting Mbed to Arduino - File configuration, testing, and compiling.
-                        WASM3 Implementation - Debugging
-                        Research - References reserch, timing comparisons of other implementations, AOT vs JIT research
-                        Final Documentation - Presentation, report
-                    </li>
-                    <li>
-                        <a href="mailto:howardx@g.ucla.edu"> Howard Xie </a>
-                        WASM3 Implementation - compliing, code, recording data for evaluation
-                        Final Documentation - Presentation, report
-                    </li>
-                    <li>
-                        <a href="mailto:utsavm9@g.ucla.edu"> Utsav Munendra </a>
-                        Zephyr Implementation - Zephyr setup and compilation
-                        Porting Mbed to Arduino - Final complilation of WAMR 
-                        Mbed on Nucleo - WAMR setup
-                        Final Documentation - Presentation, report
-                    </li>
-                </ul>
-            </div>
+            
             
              <div class="card">
                 <h1>Important Links</h1>
                 <hr />
-
+                 <ul>
+                    <li>
+                        <a href="https://github.com/bytecodealliance/wasm-micro-runtime"> WebAssembly Micro Runtime </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/conix-center/edge-rm/tree/master/agent/zephyr/app">
+                            Edge Resource Manager - Zephyr Agent Application
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                            href="https://github.com/bytecodealliance/wasm-micro-runtime/blob/main/doc/build_wamr.md#zephyr"
+                        >
+                            Running WAMR on board with Zephyr OS
+                        </a>
+                    </li>
+                </ul>
                 <ul>
                     <li>
                         <a href="https://github.com/bytecodealliance/wasm-micro-runtime"> Final Presentation PDF </a>
@@ -280,6 +244,56 @@
                     </li>
                 </ul>
             </div>
+            
+                 
+            <div class="card">
+                <h1>Team Members and Contributions</h1>
+                <hr />
+
+                <ul>
+                    <li>
+                        <a href="mailto:arelysnavarro@g.ucla.edu"> Arelys Navarro </a>
+                        Porting Mbed to Arduino - File configuration, testing, and compiling.
+                        WASM3 Implementation - Debugging
+                        Research - References reserch, timing comparisons of other implementations, AOT vs JIT research
+                        Final Documentation - Presentation, report
+                    </li>
+                    <li>
+                        <a href="mailto:howardx@g.ucla.edu"> Howard Xie </a>
+                        WASM3 Implementation - compliing, code, recording data for evaluation
+                        Final Documentation - Presentation, report
+                    </li>
+                    <li>
+                        <a href="mailto:utsavm9@g.ucla.edu"> Utsav Munendra </a>
+                        Zephyr Implementation - Zephyr setup and compilation
+                        Porting Mbed to Arduino - Final complilation of WAMR 
+                        Mbed on Nucleo - WAMR setup
+                        Final Documentation - Presentation, report
+                    </li>
+                </ul>
+            </div>     
+              
+            <div class="card">
+                <h1>Proposed Timeline</h1>
+                <hr />
+
+                <ul>
+                    <li>Week 5 (11/6): Meet with Botong Ou for guidance and collect baseline board</li>
+                    <li>Week 6 (11/09): Analyse existing literature and add it to the report.</li>
+                    <li>Week 6 (11/10): Have WASM running on Zephyr OS device for reference</li>
+                    <li>
+                        Week 6 (11/13): Learn how WASI-SN works with Zephyr, and figure out what we need to code to make
+                        it work for Arduino.
+                    </li>
+                    <li>Week 7: Report on preliminary design and results.</li>
+                    <li>Week 8 (11/27): Have a WebAssembly Runtime working on our Arduino board.</li>
+                    <li>Week 9 (12/04): Measure statistics on the overheads introduced by using WebAssembly</li>
+                    <li>Week 10 (12/11): Finish project report and code.</li>
+                    <li>Week 11 (12/18): Finish the video presentation.</li>
+                </ul>
+            </div>
+                 
+                 
         </main>
     </body>
 </html>
