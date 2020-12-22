@@ -23,12 +23,9 @@ void loop() {
 }
 
 unsigned long fib(int n) {
-  unsigned long beginning[] = {0,1};
-  if (n < 2) {
-    return beginning[n];
-  } else {
-    return fib(n-1) + fib(n-2);
-  }
+  if (n < 2)
+    return n;
+  return fib(n-1) + fib(n-2);
 }
 
 /*
