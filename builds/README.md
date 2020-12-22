@@ -4,7 +4,6 @@ Both the builds set up the WAMR runtime and execute the `fib_timed.c` provided i
 
 
 ## `wamr_arduino.bin`
----
 
 Memory map of the binary file:
 ```
@@ -29,7 +28,6 @@ Arduino also does not support flashing by drag-n-drop to a mounted drive. Our ap
 
 
 ## `wamr_nucleo.bin`
-----
 
 Memory map of the binary file:
 ```
