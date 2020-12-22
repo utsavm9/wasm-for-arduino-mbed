@@ -203,19 +203,28 @@
         </div>
 
         <div class="card">
-            <h1>Relevant Work and Resources</h1>
+            <h1>Existing Literature on WAMR</h1>
             <hr />
             <p>
                 WebAssembly's popularity has increased and with that so has the research into other applications of the
                 binary instruction format. Despite its benefits, WebAssembly has been shown to be 45% slower than its
                 native commponent
-                [1].</p>
+                <span class="tooltip"
+                    title='"A. Jangda, B. Powers, E. D. Berger and A. Guha, " Not so fast: Analyzing the performance of webassembly vs. native code", 2019 {USENIX} Annual Technical Conference ({USENIX}{ATC}19), pp. 107-120, 2019."'>
+                    [1]</span>
+                </span>.</p>
             <p>
 
                 This project invokes WAMR, but other run-times also exist. WASI has been created to be the run time
-                that accesses and executes systems calls [2]. Work such as the IoT OS, Wasmachine
+                that accesses and executes systems calls <span class="tooltip"
+                    title='E. Wen and G. Weber, "Wasmachine: Bring IoT up to Speed with A WebAssembly OS," 2020 IEEE International Conference on Pervasive Computing and Communications Workshops (PerCom Workshops), Austin, TX, USA, 2020, pp. 1-4, doi:10.1109/PerComWorkshops48775.2020.9156135.'>
+                    [2]
+                </span>. Work such as the IoT OS, Wasmachine
                 has been created to be "a secure runtime/OS aiming to run WebAssembly applications faster than
-                bare-metal machine"[2].
+                bare-metal machine"<span class="tooltip"
+                    title='E. Wen and G. Weber, "Wasmachine: Bring IoT up to Speed with A WebAssembly OS," 2020 IEEE International Conference on Pervasive Computing and Communications Workshops (PerCom Workshops), Austin, TX, USA, 2020, pp. 1-4, doi:10.1109/PerComWorkshops48775.2020.9156135.'>
+                    [2]
+                </span>.
             </p>
             <p>
                 While benenficial in terms of timing using its ahead-of-time approach, it could
@@ -224,48 +233,19 @@
                 of Mozill, Red Hat, Intel, and Fastly. Together, the Bytecode Alliance, has made progress in areas of
                 code generation, run-time,
                 and micro-runtime. Their work with the WebAssembly MicroRuntime (WAMR) has been created for Linux,
-                macOS, Zephyr, AliOS Things, and VxWorks and has support for x86_32, x86_64, Arm, and MIPS [3]. Like
+                macOS, Zephyr, AliOS Things, and VxWorks and has support for x86_32, x86_64, Arm, and MIPS <span
+                    class="tooltip"
+                    title='Bytecode Alliance, 2019. [Online]. Available:https://bytecodealliance.org/. [Accessed: 01-Dec-2020].'>
+                    [3]
+                </span>. Like
                 Wasmachine, it uses an AOT approach
                 to improve speed. This project's work uses the WAMR Porting Guide to port WAMR to a non-supported
-                platform, Mbed OS. This work will compare the timing results and include documentation to support the
+                platform, Mbed OS. This work will compare the timing results and include documentation to support
+                the
                 changes made for the this platform.
             </p>
 
         </div>
-
-        <div class="card">
-            <h1>References</h1>
-            <hr />
-            <ul>
-                <li>
-                    <a href="https://github.com/bytecodealliance/wasm-micro-runtime"> WebAssembly Micro Runtime </a>
-                </li>
-                <li>
-                    <a href="https://github.com/conix-center/edge-rm/tree/master/agent/zephyr/app">
-                        Edge Resource Manager - Zephyr Agent Application
-                    </a>
-                </li>
-                <li>
-                    <a href="https://github.com/bytecodealliance/wasm-micro-runtime/blob/main/doc/build_wamr.md#zephyr">
-                        Running WAMR on board with Zephyr OS
-                    </a>
-                </li>
-            </ul>
-            <ul>
-                <li>
-                    <a href="https://github.com/bytecodealliance/wasm-micro-runtime"> Final Presentation PDF </a>
-                </li>
-                <li>
-                    <a href="https://github.com/conix-center/edge-rm/tree/master/agent/zephyr/app">
-                        Data Sets
-                    </a>
-                </li>
-                <li>
-                    <a href="https://github.com/wasm3/wasm3-arduino"> WASM3 GitHub</a>
-                </li>
-            </ul>
-        </div>
-
 
         <div class="card">
             <h1>Team Members and Contributions</h1>
