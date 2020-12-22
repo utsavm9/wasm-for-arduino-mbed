@@ -2,14 +2,20 @@
 #include "arduino_api.h"
 
 int LED_BUILTIN;
+unsigned long startTime, endTime;
+
 
 void setup() {
   LED_BUILTIN = getPinLED();
-
+  char* c = malloc(10);
   // initialize digital pin LED_BUILTIN as an output.
   pinMode(LED_BUILTIN, OUTPUT);
   digitalWrite(LED_BUILTIN, HIGH);
-  println((char*) fib(24));
+  startTime = millis();
+  fib(24);
+  endTime = millis();
+  unsigned long elapsedTime = endTime - startTime;
+
 }
 
 // the loop function runs over and over again forever
