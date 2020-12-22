@@ -52,7 +52,7 @@ STM32 Nucleo boards are Mbed-enabled are therefore support flashing a `.bin` by 
 Starting WAMR
 fib(24) = 46368
 Destroyed WAMR Runtime
-The time taken was finding fib() was 954 milliseconds
+The time taken for finding fib() was 954 milliseconds
 The time taken for setting up WAMR + finding fib() was 958 milliseconds
 ```
 
