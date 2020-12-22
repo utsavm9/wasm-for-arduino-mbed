@@ -28,6 +28,10 @@ ul {
     color: black !important;
 }
 
+ol {
+    color: black !important;
+}
+
 kbd {
     font-family: Verdana, Geneva, Tahoma, sans-serif !important;
     font-size: 0.9rem !important;
@@ -57,5 +61,6 @@ body {
 }
 
 li {
+    color: black !important;
     margin: 0 0 5px 0;
 }
