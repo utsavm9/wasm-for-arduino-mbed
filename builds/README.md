@@ -60,7 +60,7 @@ Arduino also does not support flashing by drag-n-drop to a mounted drive. Our ap
 Charles Walker has investigated this issue before:
 
 1. [Burn bootloader Arduino nano 33 BLE](http://djynet.net/?p=969): His guide to using J-Link EDU Mini on Arduino Nano 33 board. 
-2. [ArduinoCore-nRF528x-mbedos#19](ArduinoCore-nRF528x-mbedos): GitHub issue with details how `bossac` fails to upload a `.bin` file from outside of Arduino IDE, and that our `.bin` file needs to be flashed at offset `0x10000`
+2. [ArduinoCore-nRF528x-mbedos#19](https://github.com/arduino/ArduinoCore-nRF528x-mbedos/issues/19): GitHub issue with details how `bossac` fails to upload a `.bin` file from outside of Arduino IDE, and that our `.bin` file needs to be flashed at offset `0x10000`
 
 **Tips:**
 - Preferences can be set in Arduino IDE to show verbose output of all the commands it is running to flash. `bossac` command can be determined from there which flashes a `.bin` to Arduino Nano 33.
