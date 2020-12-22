@@ -41,33 +41,6 @@
         </div>
 
         <div class="card">
-            <h1>Proposal Abstract</h1>
-            <hr />
-
-            <p>
-                Our goal in this project is to develop a sensor interface that would allow a WebAssembly Runtime to
-                run WebAssembly application on an Arduino Nano 33 BLE Sense (nRF5280) board and be able to utilize the
-                sensors present on the
-                board. Applications run inside a WebAssembly runtime are more secure than C applications compiled to
-                run natively. We want to use the security features present in a WebAssembly runtime and develop
-                applications which once compiled to WebAssembly, can execute on different boards. The main challenge
-                we face in this project is getting WebAssembly to work full-fledged on Arduino/Mbed embedded device
-                so that the application can access and control the sensors present on the board. We want WebAssembly
-                running on our embedded device and have it communicate with the proper pinouts on the device.
-            </p>
-
-            <p>
-                We also plan to quantify any additional memory overhead or runtime costs that are by using a
-                WebAssemblytime as opposed to compiling and running executables natively.
-            </p>
-
-            <p>
-                <b>Deliverables</b>: A Sensor interface to existing WebAssembly Runtime targeted to run on
-                Andruino/Mbed, this includes our code and appropriate documentation throughout the process.
-            </p>
-        </div>
-
-        <div class="card">
             <h1>Technical Approach</h1>
             <hr />
 
@@ -173,11 +146,17 @@
             <p>
                 WebAssembly's popularity has increased and with that so has the research into other applications of the
                 binary instruction format. Despite its benefits, WebAssembly has been shown to be 45% slower than its
-                native commponent when
-                [1]. This project invokes WAMR, but other run-times also exist. WASI has been created to be the run time
+                native commponent
+                [1].</p>
+            <p>
+
+                This project invokes WAMR, but other run-times also exist. WASI has been created to be the run time
                 that accesses and executes systems calls [2]. Work such as the IoT OS, Wasmachine
                 has been created to be "a secure runtime/OS aiming to run WebAssembly applications faster than
-                bare-metal machine"[2]. While benenficial in terms of timing using its ahead-of-time approach, it could
+                bare-metal machine"[2].
+            </p>
+            <p>
+                While benenficial in terms of timing using its ahead-of-time approach, it could
                 be some
                 time before Wasmachine could be deployed. In additional research work has been made by the partnership
                 of Mozill, Red Hat, Intel, and Fastly. Together, the Bytecode Alliance, has made progress in areas of
