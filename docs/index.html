@@ -19,8 +19,11 @@
         <h2 class="project-tagline">Project for ECE M202A - Embedded Systems</h2>
 
         <a href="https://github.com/utsavm9/wasm-for-arduino-mbed" target="_blank" class="btn">GitHub Repo</a>
-        <a href="https://github.com/utsavm9/wasm-for-arduino-mbed/tree/main/docs" target="_blank" class="btn">
-            Website Folder
+        <a href="https://www.youtube.com/watch?v=bjR3j_gYnHU" target="_blank" class="btn">
+            YouTube Video
+        </a>
+        <a href="https://1drv.ms/p/s!Aq1Ton_JkMkQnEo-SEGGh2uiCP19?e=mEuGdi" target="_blank" class="btn">
+            Presentation Slides
         </a>
     </header>
 
@@ -204,12 +207,12 @@
             </details>
 
             <p>
-                WASM3 claimed to be the fastest WASM interpreter. We could not run WASM3 and WAMR on the same board and
+                WASM3 claims to be the fastest WASM interpreter. We could not run WASM3 and WAMR on the same board and
                 directly compare them, as WASM3 is not supported on SMT32 Nucleo board and we could not flash to Arduino
                 Nano 33 without using Arduino IDE. However, we indirectly attempted to compare WASM3 with WAMR, by
                 measuring how many times slower was the interpreter in doing its computation as compared to natively
-                calculating it. WASM3 indeed slower down less as compared to WAMR. However, WASM3 is only an
-                interpreter, while WAMR AoT can be implemented for Mbed which should be faster than WASM3.
+                calculating it. WASM3 indeed slowed down less as compared to WAMR. However, WASM3 is only an
+                interpreter, while WAMR AoT support can be implemented for Mbed which should be faster than WASM3.
             </p>
             <details>
                 <summary> <b>› How slow are WAMR and WASM3 compared to native?</b></summary>
