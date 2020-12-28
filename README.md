@@ -21,8 +21,15 @@
     - Compiling with Mbed-CMake
 ---
 
+## Folders
 
-[Website](https://utsavm9.github.io/wasm-for-arduino-mbed/): Source code in `docs` folder.
+* `builds/`: Contains binary image of WAMR+Mbed for Arduino Nano and STM32 Nucleo boards generated from this project. Also has thoughts on further work needed to flash to Arduino Nano.
+* `docs/`: Contains code for website and the presentation.
+* `mbed/`: Submodule of USC Mbed-CMake
+* `measurements/`: Code related to measuring the performance hit of using WASM interpreters on various boards
+* `scripts/`: Helpful scripts used in this project
+* `wasm-micro-runtime/`: Submodule of WAMR
+
 
 
 # Using WAMR with Mbed
