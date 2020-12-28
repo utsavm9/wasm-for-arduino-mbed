@@ -28,9 +28,9 @@
 
 # Using WAMR with Mbed
 
-* Create a folder, say `custom_app` inside `mbed/` folder to store the source files. Copy Mbed mini-product files inside `wasm-micro-runtime/product-mini/platforms/mbed/` to that folder.
+* Create a folder, say `custom_app` inside `mbed/` folder to store the source files. Copy Mbed mini-product files inside [`wasm-micro-runtime/product-mini/platforms/mbed/`](https://github.com/utsavm9/wasm-micro-runtime/tree/main/product-mini/platforms/mbed) to that folder.
 
-* Make a soft-link to the root of WAMR repo, inside the `mbed/` directory and name the soft-link as `wamr`.
+* Make a soft-link to the root of WAMR repo, inside the [`mbed/`](https://github.com/utsavm9/mbed-cmake-example-project/tree/master) directory and name the soft-link as `wamr`.
 ```bash
 # Bash
 ln -s ~/wasm-micro-runtime/ ~/mbed/wamr
@@ -40,9 +40,9 @@ ln -s ~/wasm-micro-runtime/ ~/mbed/wamr
 New-Item -Name ~/mbed/wamr -ItemType SymbolicLink -Value ~\wasm-micro-runtime\
 ```
 
-* Copy `build_mbed.ps1` inside `mbed/`.
+* Copy [`build_mbed.ps1`](https://github.com/utsavm9/wasm-for-arduino-mbed/blob/main/scripts/build_mbed.ps1) inside `mbed/`.
 
-* The name of the executable should be the same in `CMakeLists.txt` as in the `build_mbed.ps1` script. 
+* The name of the executable [specified here](https://github.com/utsavm9/wasm-micro-runtime/blob/0960e82db2be30b741f5c83e7a57ea9056b2ab59/product-mini/platforms/mbed/CMakeLists.txt#L18) in `CMakeLists.txt` should be the same as in the `build_mbed.ps1` script [specified here](https://github.com/utsavm9/wasm-for-arduino-mbed/blob/a9f9c1840c3a49caa469e649bfd748dad6fbfa83/scripts/build_mbed.ps1#L40) and [here](https://github.com/utsavm9/wasm-for-arduino-mbed/blob/a9f9c1840c3a49caa469e649bfd748dad6fbfa83/scripts/build_mbed.ps1#L23).
 
 * The `CMakeLists.txt` of the current directory determines which project will be built. So, `cd custom_app`.
 
