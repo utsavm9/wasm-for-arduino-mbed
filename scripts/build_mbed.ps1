@@ -18,8 +18,6 @@ Param(
 )
 
 
-
-
 if ($quick) {
     cd build
     C:\MinGW\bin\mingw32-make -j4 hello_world
