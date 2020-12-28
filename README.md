@@ -36,7 +36,7 @@
 
 * Copy the Zephyr mini-product files from [`
 wasm-micro-runtime/product-mini/platforms/zephyr/simple/
-`](https://github.com/bytecodealliance/wasm-micro-runtime/tree/main/product-mini/platforms/zephyr/simple) to a new folder inside `zephyr/samples/`. Assume we copied the mini-product files into `zephyr/samples/custom_app`.
+`](https://github.com/bytecodealliance/wasm-micro-runtime/tree/main/product-mini/platforms/zephyr/simple) to a new folder inside [`zephyr/samples/`](https://github.com/zephyrproject-rtos/zephyr/tree/master/samples). Assume we copied the mini-product files into `zephyr/samples/custom_app`.
 
 * Make a soft-link to the root of WAMR repo, inside the `custom_app` directory and name the soft-link as `wamr`.
 ```bash
