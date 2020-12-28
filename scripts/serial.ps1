@@ -37,7 +37,8 @@ function Serial-Monitor {
         if ([console]::KeyAvailable) {
             $key = [system.console]::readkey($true)
             if (($key.modifiers -band [consolemodifiers]"control") -and ($key.key -eq "C")) {
-                echo "\nExititng"
+                echo ""
+                echo "Exititng"
                 break;
             }
         }
