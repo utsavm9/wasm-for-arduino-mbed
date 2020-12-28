@@ -1,6 +1,6 @@
 # Measurements
 
-fib_timed.c will be run on:
+`fib_timed.c` will be run on:
 * WAMR Interpretor:
     * Zephyr OS (Nordic nRF52840 DK)
     * MBed OS (STM32F411 Nucleo-64 RE)
@@ -8,11 +8,14 @@ fib_timed.c will be run on:
     * MBed OS (Arduino Nano 33 BLE)
 
 
-Compile using given script.
+Compile using `gen_wasm.sh` script in Bash on WSL/Linux.
 
-fib(24)
+Computing `fib(24)`.
 
-STM32 Nucleo WAMR Runtime:
+---
+
+## STM32 Nucleo WAMR 
+Runtime:
 ```
 Starting WAMR
 fib(24) = 46368
@@ -21,7 +24,7 @@ The time taken was finding fib() was 954 milliseconds
 The time taken for setting up WAMR + finding fib() was 958 milliseconds
 ```
 
-STM32 Nucleo WAMR Memory:
+Memory:
 ```
 | Module                 |           .text |       .data |            .bss |
 |------------------------|-----------------|-------------|-----------------|
@@ -38,7 +41,19 @@ Total Static RAM memory (data + bss): 114056(+114056) bytes
 Total Flash memory (text + data): 123516(+123516) bytes
 ```
 
-STM32 Nucleo Native Memory:
+---
+
+## STM32 Nucleo Native 
+
+Runtime:
+```
+Starting native calculation
+fib(24) = 46368
+Finished native calculation
+The time taken was 22 milliseconds
+```
+
+Memory:
 ```
 | Module                 |         .text |       .data |        .bss |
 |------------------------|---------------|-------------|-------------|
@@ -54,16 +69,11 @@ Total Static RAM memory (data + bss): 9720(+9720) bytes
 Total Flash memory (text + data): 56764(+56764) bytes
 ```
 
-STM32 Nucleo Native Runtime:
-```
-Starting native calculation
-fib(24) = 46368
-Finished native calculation
-The time taken was 22 milliseconds
-```
+---
 
 
-Nordic Zephyr WAMR Time taken:
+## Nordic Zephyr WAMR 
+Runtime:
 ```
 *** Booting Zephyr OS build zephyr-v2.4.0-1800-g79296694c38a  ***
 fib(24) = 46368
@@ -71,7 +81,11 @@ The time taken was finding fib() was 1655 milliseconds
 The time taken for setting up WAMR + finding fib() was 1668 milliseconds
 ```
 
-Nordic Zephyr Native Time taken:
+---
+
+
+## Nordic Zephyr Native T
+Runtime:
 ```
 *** Booting Zephyr OS build zephyr-v2.4.0-1800-g79296694c38a  ***
 fib(24) = 46368

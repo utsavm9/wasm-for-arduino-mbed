@@ -27,6 +27,42 @@
 
 ---
 
+## Using WAMR on Zephyr OS
+
+* See `scripts/` directory for help on using `gen_wasm.sh` to get C-byte array representing your WASM program.
+
+* Verify that a blinky program can be compiled and flashed to the board. Follow steps in "[Getting Started Guide - Zephyr](https://docs.zephyrproject.org/latest/getting_started/index.html)" or latest guide and get blinkly program flashed to board using `west`.
+    - If using the same board as us (Nordic nRF528040), then the target name is `nrf52840dk_nrf52840`
+
+* Copy the Zephyr mini-product files from [`
+wasm-micro-runtime/product-mini/platforms/zephyr/simple/
+`](https://github.com/bytecodealliance/wasm-micro-runtime/tree/main/product-mini/platforms/zephyr/simple) to a new folder inside `zephyr/samples/`. Assume we copied the mini-product files into `zephyr/samples/custom_app`.
+
+* Make a soft-link to the root of WAMR repo, inside the `custom_app` directory and name the soft-link as `wamr`.
+```bash
+# Bash
+ln -s ~/wasm-micro-runtime/ custom_app/wamr
+```
+```powershell
+# Powershell run as Admin
+New-Item -Name custom_app/wamr -ItemType SymbolicLink -Value ~\wasm-micro-runtime\
+```
+
+* Remove all files inside the `custom_app/src` folder and then place these files inside that foler:
+    - `measurements/zephyr-wamr/main.c`
+    - `measurements/fib_timed.c.wasm`
+
+* With current directory the same as `custom_app`, so that the `CMakeList.txt` file is in the current directory, compile the app. A memory map of the program should be shown when successfully compiled.
+```powershell
+west build -b nrf52840dk_nrf52840 . -p always -- -DWAMR_BUILD_TARGET=THUMB -DWAMR_BUILD_AOT=0
+```
+
+* Connect board to USB with power switched on. Flash to the board using `west flash`. 
+
+* Use `Serial-Monitor` script to find the associated COM port of the board. With default baud rate of 115200, `Serial-Monitor` script can be used to see the output from `printf()`.
+
+---
+
 ## Team Members
 
 -   Arelys Navarro (arelysnavarro@g.ucla.edu)
