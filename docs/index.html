@@ -188,6 +188,37 @@
         </div>
 
         <div class="card">
+            <h1>Performance Comparision</h1>
+            <hr />
+
+            <p>
+                We used the benchmark of measuring the execution time of computing 24th Fibonacci number recursively. This
+                computation when performed by any WASM interpreter was much slower when compared to native. This was
+                expected. However, it was surprising that WAMR had little overhead to set up, and most of the extra time
+                taken was while doing the computation.
+            </p>
+            <details>
+                <summary> <b>› Execution time of WASM interpreter on various boards</b></summary>
+                <img class="center"
+                    src="https://raw.githubusercontent.com/utsavm9/wasm-for-arduino-mbed/main/measurements/Graph-1.png" />
+            </details>
+
+            <p>
+                WASM3 claimed to be the fastest WASM interpreter. We could not run WASM3 and WAMR on the same board and
+                directly compare them, as WASM3 is not supported on SMT32 Nucleo board and we could not flash to Arduino
+                Nano 33 without using Arduino IDE. However, we indirectly attempted to compare WASM3 with WAMR, by
+                measuring how many times slower was the interpreter in doing its computation as compared to natively
+                calculating it. WASM3 indeed slower down less as compared to WAMR. However, WASM3 is only an
+                interpreter, while WAMR AoT can be implemented for Mbed which should be faster than WASM3.
+            </p>
+            <details>
+                <summary> <b>› How slow are WAMR and WASM3 compared to native?</b></summary>
+                <img class="center"
+                    src="https://raw.githubusercontent.com/utsavm9/wasm-for-arduino-mbed/main/measurements/Graph-2.png" />
+            </details>
+        </div>
+
+        <div class="card">
             <h1>Strengths and Possible Improvements</h1>
             <hr />
 
@@ -310,7 +341,8 @@
             </ul>
 
             <p>
-                Thanks a lot to <a href="https://github.com/oubotong">Botong Ou</a> for answering so many of our questions about working with WAMR and Zephyr.
+                Thanks a lot to <a href="https://github.com/oubotong">Botong Ou</a> for answering so many of our
+                questions about working with WAMR and Zephyr.
             </p>
         </div>
 
