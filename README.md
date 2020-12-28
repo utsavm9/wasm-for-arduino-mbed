@@ -29,7 +29,7 @@
 
 ## Using WAMR on Zephyr OS
 
-* See `scripts/` directory for help on using `gen_wasm.sh` to get C-byte array representing your WASM program.
+* See `scripts/` directory for help on using [`gen_wasm.sh`](https://github.com/utsavm9/wasm-for-arduino-mbed/blob/main/scripts/gen_wasm.sh) to get C-byte array representing your WASM program.
 
 * Verify that a blinky program can be compiled and flashed to the board. Follow steps in "[Getting Started Guide - Zephyr](https://docs.zephyrproject.org/latest/getting_started/index.html)" or latest guide and get blinkly program flashed to board using `west`.
     - If using the same board as us (Nordic nRF528040), then the target name is `nrf52840dk_nrf52840`
@@ -59,7 +59,7 @@ west build -b nrf52840dk_nrf52840 . -p always -- -DWAMR_BUILD_TARGET=THUMB -DWAM
 
 * Connect board to USB with power switched on. Flash to the board using `west flash`. 
 
-* Use `Serial-Monitor` script to find the associated COM port of the board. With default baud rate of 115200, `Serial-Monitor` script can be used to see the output from `printf()`.
+* Use [`Serial-Monitor`](https://github.com/utsavm9/wasm-for-arduino-mbed/blob/main/scripts/serial.ps1) script to find the associated COM port of the board. With default baud rate of 115200, `Serial-Monitor` script can be used to see the output from `printf()`.
 
 ---
 
