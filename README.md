@@ -87,8 +87,7 @@ west build -b nrf52840dk_nrf52840 . -p always -- -DWAMR_BUILD_TARGET=THUMB -DWAM
 
 # Measuring Rutime with WASM3
 
-- Recording time to finish computing fibonacci • [See file](https://github.com/utsavm9/wasm-for-arduino-mbed/blob/main/measurements/nano-wasm3/wasm_fibonnaci_timing/wasm_fibonnaci_timing.ino)
-- WASM Program to recursively compute fibonacci • [See file](https://github.com/utsavm9/wasm-for-arduino-mbed/tree/main/measurements/nano-wasm3/cpp)
+- Recording time to finish computing fibonacci • [See file](https://github.com/utsavm9/wasm-for-arduino-mbed/blob/main/measurements/nano-wasm3/wasm_fibonnaci_timing.ino)
 
 
 # Team Members
