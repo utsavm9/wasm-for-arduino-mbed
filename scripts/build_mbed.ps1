@@ -2,9 +2,9 @@
 #   cd mbed-cmake-example-project
 
 # Usage:
-# ../build_script.ps1              : To build for Arduino Nano 33
-# ../build_script.ps1 -nucleo      : To build for STM32F411 Nucleo
-# ../build_script.ps1 -quick       : To quickly resume `make` from last build
+# ../build_mbed.ps1              : To build for Arduino Nano 33
+# ../build_mbed.ps1 -nucleo      : To build for STM32F411 Nucleo
+# ../build_mbed.ps1 -quick       : To quickly resume `make` from last build
 
 
 Param(
@@ -20,7 +20,7 @@ Param(
 
 if ($quick) {
     cd build
-    C:\MinGW\bin\mingw32-make -j4 hello_world
+    C:\MinGW\bin\mingw32-make -j4 wamr_native_app
 }
 else {
     rm -r build

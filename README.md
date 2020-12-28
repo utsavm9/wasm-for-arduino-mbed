@@ -25,9 +25,34 @@
 
 [Website](https://utsavm9.github.io/wasm-for-arduino-mbed/): Source code in `docs` folder.
 
----
 
-## Using WAMR on Zephyr OS
+# Using WAMR with Mbed
+
+* Create a folder, say `custom_app` inside `mbed/` folder to store the source files. Copy Mbed mini-product files inside `wasm-micro-runtime/product-mini/platforms/mbed/` to that folder.
+
+* Make a soft-link to the root of WAMR repo, inside the `mbed/` directory and name the soft-link as `wamr`.
+```bash
+# Bash
+ln -s ~/wasm-micro-runtime/ ~/mbed/wamr
+```
+```powershell
+# Powershell run as Admin
+New-Item -Name ~/mbed/wamr -ItemType SymbolicLink -Value ~\wasm-micro-runtime\
+```
+
+* Copy `build_mbed.ps1` inside `mbed/`.
+
+* The name of the executable should be the same in `CMakeLists.txt` as in the `build_mbed.ps1` script. 
+
+* The `CMakeLists.txt` of the current directory determines which project will be built. So, `cd custom_app`.
+
+* Compile with `../build_mbed.ps1`. 
+
+* A `.bin` file would be generated inside the `mbed/build/`. This can be copied to the drive to which an Mbed-enabled board mounted to flash the file onto the board.
+
+
+
+# Using WAMR with Zephyr
 
 * See `scripts/` directory for help on using [`gen_wasm.sh`](https://github.com/utsavm9/wasm-for-arduino-mbed/blob/main/scripts/gen_wasm.sh) to get C-byte array representing your WASM program.
 
