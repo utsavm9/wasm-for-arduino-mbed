@@ -18,10 +18,6 @@
     - Compiling with Mbed-CMake
 ---
 
-* Wasm3
-    - Wasm3 library with modified driver code ([here](https://github.com/utsavm9/wasm-for-arduino-mbed/tree/main/wasm3-arduino/examples_pio/wasm_fibonnaci_timing))
-    - Example WASM program that recursively computes the 24th Fibonnaci number and times it ([here](https://github.com/utsavm9/wasm-for-arduino-mbed/tree/main/wasm3-arduino/wasm_apps/cpp))
-
 
 [Website](https://utsavm9.github.io/wasm-for-arduino-mbed/): Source code in `docs` folder.
 
@@ -74,7 +70,7 @@ New-Item -Name custom_app/wamr -ItemType SymbolicLink -Value ~\wasm-micro-runtim
 ```
 
 * Remove all files inside the `custom_app/src` folder and then place these files inside that foler:
-    - `measurements/zephyr-wamr/main.c`
+    - `measurements/nordic-wamr/main.c`
     - `measurements/fib_timed.c.wasm`
 
 * With current directory the same as `custom_app`, so that the `CMakeList.txt` file is in the current directory, compile the app. A memory map of the program should be shown when successfully compiled.
@@ -86,9 +82,13 @@ west build -b nrf52840dk_nrf52840 . -p always -- -DWAMR_BUILD_TARGET=THUMB -DWAM
 
 * Use [`Serial-Monitor`](https://github.com/utsavm9/wasm-for-arduino-mbed/blob/main/scripts/serial.ps1) script to find the associated COM port of the board. With default baud rate of 115200, `Serial-Monitor` script can be used to see the output from `printf()`.
 
----
+# Measuring Rutime with WASM3
 
-## Team Members
+- Recording time to finish computing fibonacci • [See file](https://github.com/utsavm9/wasm-for-arduino-mbed/blob/main/measurements/nano-wasm3/wasm_fibonnaci_timing/wasm_fibonnaci_timing.ino)
+- WASM Program to recursively compute fibonacci • [See file](https://github.com/utsavm9/wasm-for-arduino-mbed/tree/main/measurements/nano-wasm3/cpp)
+
+
+# Team Members
 
 -   Arelys Navarro (arelysnavarro@g.ucla.edu)
 -   Howard Xie (howardx@cs.ucla.edu)

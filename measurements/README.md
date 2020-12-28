@@ -84,7 +84,7 @@ The time taken for setting up WAMR + finding fib() was 1668 milliseconds
 ---
 
 
-## Nordic Zephyr Native T
+## Nordic Zephyr Native
 Runtime:
 ```
 *** Booting Zephyr OS build zephyr-v2.4.0-1800-g79296694c38a  ***
